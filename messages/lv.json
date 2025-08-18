@@ -1,0 +1,37 @@
+{
+    "LocaleSwitcher": {
+        "label": "Izvēlēties valodu",
+        "locale": "{locale}",
+        "en": "English",
+        "ru": "Русский",
+        "lv": "Latviešu"
+    },
+    "emails": {
+        "thankYouForYourEmail": {
+            "subject": "Paldies par jūsu ziņu",
+            "heading": "Sveiki, {firstName}!",
+            "body": "Paldies par jūsu ziņu. Mēs ar jums sazināsimies drīz."
+        }
+    },
+
+    "ContactForm": {
+        "Title": "Sūtīt ziņu",
+        "namePlaceholder": "Jūsu vārds",
+        "subjectPlaceholder": "Ziņas tēma",
+        "messagePlaceholder": "Pastāstiet par savu ideju...",
+        "sendButton": "Nosūtīt",
+        "sending": "Nosūtīšana...",
+
+        "name": "Vārds",
+        "email": "Epasts",
+        "theme": "Tēma",
+        "message": "Ziņojums",
+
+        "toastMessageSuccessful": "Ziņojums nosūtīts! Es sazināšos ar jums drīz."
+
+
+    },
+    "footer": {
+        "madeWithLove": "Izgatavots ar "
+    }
+}

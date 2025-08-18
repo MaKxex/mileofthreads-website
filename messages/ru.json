@@ -1,0 +1,51 @@
+{
+    "LocaleSwitcher": {
+        "label": "Выбрать язык",
+        "locale": "{locale}",
+        "en": "English",
+        "ru": "Русский",
+        "lv": "Latviešu"
+
+    },
+    "emails": {
+        "thankYouForYourEmail": {
+            "subject": "Спасибо за ваше сообщение",
+            "heading": "Здравствуйте, {firstName}!",
+            "body": "Спасибо за ваше сообщение. Мы свяжемся с вами в ближайшее время."
+        }
+    },
+
+    "ContactForm": {
+        "Title": "Отправить сообщение",
+        "namePlaceholder": "Ваше имя",
+        "subjectPlaceholder": "Тема сообщения",
+        "messagePlaceholder": "Расскажите о вашей идее...",
+        "sendButton": "Отправить",
+        "sending": "Отправка...",
+
+        "name": "Имя",
+        "email": "Email",
+        "theme": "Тема",
+        "message": "Сообщение",
+
+        "toastMessageSuccessful": "Сообщение отправлено! Я свяжусь с вами в ближайшее время."
+    },
+
+    "footer": {
+        "madeWithLove": "Сделано с "
+    },
+
+
+    "errors": {
+        "captchaErrorOnVerification": "Ошибка проверки CAPTCHA. Пожалуйста, попробуйте еще раз.",
+        "errorsOnSendingEmails": "Ошибка при отправке писем.",
+        "allFieldsAreRequired": "Все поля обязательны к заполнению"
+    },
+
+
+    "404": {
+        "title": "Упс! Нить запуталась",
+        "toMainPage": "Домой к вышивке",
+        "goBack": "Назад"
+    }
+}

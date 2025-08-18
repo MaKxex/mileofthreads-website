@@ -1,0 +1,35 @@
+{
+    "LocaleSwitcher": {
+        "label": "Select Language",
+        "locale": "{locale}",
+        "en": "English",
+        "ru": "Русский",
+        "lv": "Latviešu"
+    },
+    "emails": {
+        "thankYouForYourEmail": {
+            "subject": "Thank you for your message",
+            "heading": "Hello, {firstName}!",
+            "body": "Thank you for your message. We will get back to you shortly."
+        }
+    },
+
+    "ContactForm": {
+        "Title": "Send Message",
+        "namePlaceholder": "Your Name",
+        "subjectPlaceholder": "Subject",
+        "messagePlaceholder": "Tell us about your idea...",
+        "sendButton": "Send",
+        "sending": "Sending...",
+
+        "name": "Name",
+        "email": "Email",
+        "theme": "Theme",
+        "message": "Message",
+
+        "toastMessageSuccessful": "Message sent! I will get back to you shortly."
+    },
+    "footer": {
+        "madeWithLove": "Made with "
+    }
+}
