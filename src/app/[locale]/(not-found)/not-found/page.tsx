@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Home, ArrowLeft } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 export default function NotFoundPage() {
   const [isAnimating, setIsAnimating] = useState(false);
   const t = useTranslations('404');
@@ -15,12 +16,14 @@ export default function NotFoundPage() {
     return () => clearTimeout(timer);
   }, []);
 
+  const router = useRouter();
+
   const handleGoHome = () => {
-    window.location.href = '/';
+    router.push('/');
   };
 
   const handleGoBack = () => {
-    window.history.back();
+    router.back();
   };
 
   return (  

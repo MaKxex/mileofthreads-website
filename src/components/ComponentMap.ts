@@ -1,11 +1,14 @@
+import Hero from "./Hero";
+import Gallery from "./Gallery";
+import About from "./About";
+import Contact from "./Contact";
 import dynamic from "next/dynamic";
 
-
 export const ComponentMap: Record<string, any> = {
-  "page-components.hero": dynamic(() => import("./Hero")),
-  "page-components.gallery": dynamic(() => import("./Gallery")),
-  "page-components.about": dynamic(() => import("./About")),
-  "page-components.contact": dynamic(() => import("./Contact")),
+  "page-components.hero": Hero,
+  "page-components.gallery": Gallery,
+  "page-components.about": About,
+  "page-components.contact": Contact,
 };
 
 export const IconMap: Record<string, any> = {

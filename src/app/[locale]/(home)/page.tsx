@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { getPage } from "@/lib/strapiService";
 import { ComponentMap } from "@/components/ComponentMap";
 import { notFound } from "next/navigation";
@@ -30,12 +31,11 @@ export default async function Home({
           return null;
         }
 
-        // Прокидываем все данные секции в компонент
+        // Оборачиваем каждый компонент в Suspense для лучшей обработки клиентских компонентов
         return (
-          <Component
-            key={index}
-            {...section}
-          />
+          <Suspense key={index} fallback={<div>Loading...</div>}>
+            <Component {...section} />
+          </Suspense>
         );
       })}
     </>
