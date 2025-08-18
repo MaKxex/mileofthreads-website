@@ -25,6 +25,9 @@ export async function contactAction(
   const te = await getTranslations('emails.thankYouForYourEmail');
   const e = await getTranslations('errors');
 
+  console.log("asd");
+  
+
   if (!name || !email || !subject || !message || !token) {
     return { error: e('allFieldsAreRequired') };
   }
@@ -41,10 +44,14 @@ export async function contactAction(
     return { error: e('captchaErrorOnVerification') };
   }
 
+  console.log(name, email, subject, message, token);
+  console.log(resend.sta);
+  
+
   try {
     // 1. Письмо клиенту
     await resend.emails.send({
-      from: 'Milena <noreply@mileofthreads.com>',
+      from: 'Milena <mileofthreads@gmail.com>',
       to: [email],
       subject: te('subject'),
       react: render(<ThankYouForYourEmail
@@ -53,13 +60,19 @@ export async function contactAction(
         body={te('body')}
       />),
     });
+
+    console.log(1);
     
     await resend.emails.send({
-      from: 'portfolio <noreply@mileofthreads.com>',
+      from: 'portfolio <mileofthreads@gmail.com>',
       to: [process.env.ADMIN_EMAIL!],
       subject: 'Новое сообщение с сайта от ' + name,
       react: render(<AdminNotificationEmail name={name} email={email} subject={subject} message={message} />),
     });
+
+
+    console.log(2);
+    
 
     return { success: true };
   } catch (error) {
