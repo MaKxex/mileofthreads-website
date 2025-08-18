@@ -6,7 +6,6 @@ import { AdminNotificationEmail } from "@/emails/templates/AdminNotificationEmai
 import { validateTurnstileToken } from "next-turnstile";
 import { v4 } from "uuid";
 import { getTranslations } from 'next-intl/server';
-import { render } from '@react-email/components';
 
 const resend = new Resend(process.env.RESEND_API_TOKEN!);
 
@@ -47,18 +46,18 @@ export async function contactAction(
       from: 'Milena <noreply@mileofthreads.com>',
       to: [email],
       subject: te('subject'),
-      react: render(<ThankYouForYourEmail
-        firstName={name}
-        heading={te('heading', { firstName: name })}
-        body={te('body')}
-      />),
+      react: ThankYouForYourEmail({
+        firstName: name,
+        heading: te('heading', { firstName: name }),
+        body: te('body')
+      }),
     });
     
     await resend.emails.send({
       from: 'portfolio <noreply@mileofthreads.com>',
       to: [process.env.ADMIN_EMAIL!],
       subject: 'Новое сообщение с сайта от ' + name,
-      react: render(<AdminNotificationEmail name={name} email={email} subject={subject} message={message} />),
+      react: AdminNotificationEmail({ name, email, subject, message}),
     });
 
     return { success: true };
