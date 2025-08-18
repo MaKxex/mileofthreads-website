@@ -15,9 +15,6 @@ export default function Seo({
   favicon = "/favicon.ico",
 }) {
 
-  console.log(favicon);
-  
-    
   return (
     <Head>
       <title key="title">{`${title} – ${siteName}`}</title>

@@ -64,9 +64,6 @@ export default async function RootLayout({ children, params }: { children: React
     getGlobal(locale)
   ]);
 
-  console.log(process.env.NEXT_PUBLIC_STRAPI_URL + global?.favicon?.url);
-  
-
   return (
     <html lang={locale}>
       <body

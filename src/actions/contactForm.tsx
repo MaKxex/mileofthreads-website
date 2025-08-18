@@ -5,7 +5,8 @@ import ThankYouForYourEmail from '@/emails/templates/ThankYouForYourEmail';
 import { AdminNotificationEmail } from "@/emails/templates/AdminNotificationEmail";
 import { validateTurnstileToken } from "next-turnstile";
 import { v4 } from "uuid";
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
+import { render } from '@react-email/components';
 
 const resend = new Resend(process.env.RESEND_API_TOKEN!);
 
@@ -21,9 +22,8 @@ export async function contactAction(
   const message = formData.get('message') as string;
   const token = formData.get('turnstileToken') as string;
 
-  const te = useTranslations('emails.thankYouForYourEmail');
-  const e = useTranslations('errors');
-
+  const te = await getTranslations('emails.thankYouForYourEmail');
+  const e = await getTranslations('errors');
 
   if (!name || !email || !subject || !message || !token) {
     return { error: e('allFieldsAreRequired') };
@@ -44,24 +44,27 @@ export async function contactAction(
   try {
     // 1. Письмо клиенту
     await resend.emails.send({
-      from: 'Milena <mileofthreads@gmail.com>',
+      from: 'Milena <noreply@mileofthreads.com>',
       to: [email],
       subject: te('subject'),
-      react: ThankYouForYourEmail({ firstName: name, locale: 'ru' }),
+      react: render(<ThankYouForYourEmail
+        firstName={name}
+        heading={te('heading', { firstName: name })}
+        body={te('body')}
+      />),
     });
-
-
+    
     await resend.emails.send({
-      from: 'portfolio <mileofthreads@gmail.com>',
+      from: 'portfolio <noreply@mileofthreads.com>',
       to: [process.env.ADMIN_EMAIL!],
       subject: 'Новое сообщение с сайта от ' + name,
-      react: AdminNotificationEmail({ name, email, subject, message}),
+      react: render(<AdminNotificationEmail name={name} email={email} subject={subject} message={message} />),
     });
 
     return { success: true };
-  } catch (e) {
-    console.error(e);
-    const t = useTranslations('errors');
+  } catch (error) {
+    console.error(error);
+    const t = await getTranslations('errors');
     return { error: t('errorsOnSendingEmails') };
   }
 }
