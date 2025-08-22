@@ -18,9 +18,11 @@ export default async function Page({
   const { locale, slug = 'home' } = resolvedParams;
 
   // Fetch the page data from Strapi using the slug
-  const pageData = await getPage(slug, locale);  
+  const pageData = await getPage(slug, locale);
+
 
   if (!pageData) {
+    // return <div>Page not found</div>;
     return notFound();
   }
 
@@ -36,7 +38,7 @@ export default async function Page({
         
         return (
           <Suspense key={index} fallback={
-            <div className="space-y-8 p-8">
+                      <div className="space-y-8 p-8">
               <Skeleton className="h-12 w-[300px]" />
               <div className="space-y-6">
                 <Skeleton className="h-4 w-[90%]" />

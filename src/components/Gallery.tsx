@@ -20,23 +20,16 @@ export default function Gallery(data: any) {
   return (
     <section id="gallery" className="py-20 bg-background relative overflow-hidden">
       {/* Enhanced Thematic Background Elements */}
-      <div className="absolute top-10 right-10 w-24 h-24 bg-primary border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] rotate-45 opacity-5 hover:opacity-20 hover:scale-125 hover:rotate-90 transition-all duration-500 cursor-pointer"></div>
-      <div className="absolute bottom-20 left-10 w-16 h-16 bg-secondary border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] -rotate-12 opacity-5 hover:opacity-20 hover:scale-125 hover:rotate-45 transition-all duration-500 cursor-pointer"></div>
+      <div className="absolute top-10 right-10 w-24 h-24 bg-primary border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] rotate-45 opacity-5 hover:opacity-20 hover:scale-125 hover:rotate-90 transition-all duration-500  "></div>
+      <div className="absolute bottom-20 left-10 w-16 h-16 bg-secondary border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] -rotate-12 opacity-5 hover:opacity-20 hover:scale-125 hover:rotate-45 transition-all duration-500  "></div>
       
       {/* Sewing themed floating elements */}
-      <Scissors className="absolute top-32 right-1/4 w-10 h-10 text-accent opacity-20 rotate-45 hover:opacity-60 hover:scale-150 hover:rotate-180 transition-all duration-700 cursor-pointer animate-pulse" />
-      <Minus className="absolute top-1/4 left-1/5 w-8 h-8 text-primary opacity-15 hover:opacity-50 hover:scale-150 hover:rotate-45 transition-all duration-300 cursor-pointer animate-pulse" style={{ animationDelay: '0.5s' }} />
-      <Circle className="absolute bottom-1/4 left-1/4 w-6 h-6 text-secondary opacity-20 hover:opacity-60 hover:scale-150 transition-all duration-300 cursor-pointer animate-pulse" style={{ animationDelay: '1s' }} />
-      <Target className="absolute top-1/2 right-10 w-5 h-5 text-accent opacity-15 hover:opacity-50 hover:scale-150 transition-all duration-300 cursor-pointer animate-pulse" style={{ animationDelay: '1.5s' }} />
-      <Sparkles className="absolute bottom-1/3 right-1/3 w-7 h-7 text-primary opacity-25 hover:opacity-60 hover:scale-150 transition-all duration-300 cursor-pointer animate-pulse" style={{ animationDelay: '2s' }} />
+      <Scissors className="absolute top-32 right-1/4 w-10 h-10 text-accent opacity-20 rotate-45 hover:opacity-60 hover:scale-150 hover:rotate-180 transition-all duration-700   animate-pulse" />
+      <Minus className="absolute top-1/4 left-1/5 w-8 h-8 text-primary opacity-15 hover:opacity-50 hover:scale-150 hover:rotate-45 transition-all duration-300   animate-pulse" style={{ animationDelay: '0.5s' }} />
+      <Circle className="absolute bottom-1/4 left-1/4 w-6 h-6 text-secondary opacity-20 hover:opacity-60 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '1s' }} />
+      <Target className="absolute top-1/2 right-10 w-5 h-5 text-accent opacity-15 hover:opacity-50 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '1.5s' }} />
+      <Sparkles className="absolute bottom-1/3 right-1/3 w-7 h-7 text-primary opacity-25 hover:opacity-60 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '2s' }} />
       
-      {/* Embroidery hoops */}
-      {/* <div className="absolute top-20 right-20 w-20 h-20 border-4 border-muted-foreground rounded-full opacity-10 hover:opacity-30 hover:scale-125 hover:rotate-45 transition-all duration-500 cursor-pointer">
-        <div className="w-full h-full border-2 border-accent rounded-full scale-75 opacity-50"></div>
-      </div>
-      <div className="absolute bottom-32 left-20 w-14 h-14 border-3 border-primary rounded-full opacity-15 hover:opacity-40 hover:scale-125 hover:-rotate-45 transition-all duration-500 cursor-pointer">
-        <div className="w-full h-full border-2 border-secondary rounded-full scale-80 opacity-60"></div>
-      </div> */}
       
       <div className="container mx-auto px-6 relative z-10">
         <SectionHeader

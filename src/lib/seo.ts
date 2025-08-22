@@ -33,6 +33,9 @@ export function generateSeoMetadata({
     icons: {
       icon: favicon,
     },
+    verification: {
+      google: "ВАШ_ВЕРИФИКАЦИОННЫЙ_КОД",
+    },
     openGraph: {
       title,
       description,

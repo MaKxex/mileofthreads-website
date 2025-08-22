@@ -83,35 +83,35 @@ export function CustomDesign() {
   return (
     <section id="custom" className="py-20 bg-muted relative overflow-hidden">
       {/* Enhanced Thematic Background Elements */}
-      <div className="absolute top-15 left-10 w-14 h-14 bg-primary border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] rotate-12 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-90 transition-all duration-500 cursor-pointer"></div>
-      <div className="absolute bottom-10 right-15 w-18 h-18 bg-secondary border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] -rotate-45 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-12 transition-all duration-500 cursor-pointer"></div>
+      <div className="absolute top-15 left-10 w-14 h-14 bg-primary border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] rotate-12 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-90 transition-all duration-500  "></div>
+      <div className="absolute bottom-10 right-15 w-18 h-18 bg-secondary border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] -rotate-45 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-12 transition-all duration-500  "></div>
       
       {/* Sewing themed floating elements */}
-      <Scissors className="absolute top-20 right-1/4 w-10 h-10 text-accent opacity-20 rotate-45 hover:opacity-60 hover:scale-150 hover:rotate-180 transition-all duration-700 cursor-pointer animate-pulse" />
-      <Palette className="absolute top-1/3 left-1/5 w-8 h-8 text-primary opacity-15 hover:opacity-50 hover:scale-150 hover:rotate-45 transition-all duration-300 cursor-pointer animate-pulse" style={{ animationDelay: '0.5s' }} />
-      <Minus className="absolute bottom-1/4 left-1/4 w-6 h-6 text-secondary opacity-20 hover:opacity-60 hover:scale-150 transition-all duration-300 cursor-pointer animate-pulse" style={{ animationDelay: '1s' }} />
-      <Target className="absolute top-1/2 right-10 w-5 h-5 text-accent opacity-15 hover:opacity-50 hover:scale-150 transition-all duration-300 cursor-pointer animate-pulse" style={{ animationDelay: '1.5s' }} />
-      <Sparkles className="absolute bottom-1/3 right-1/3 w-7 h-7 text-primary opacity-25 hover:opacity-60 hover:scale-150 transition-all duration-300 cursor-pointer animate-pulse" style={{ animationDelay: '2s' }} />
+      <Scissors className="absolute top-20 right-1/4 w-10 h-10 text-accent opacity-20 rotate-45 hover:opacity-60 hover:scale-150 hover:rotate-180 transition-all duration-700   animate-pulse" />
+      <Palette className="absolute top-1/3 left-1/5 w-8 h-8 text-primary opacity-15 hover:opacity-50 hover:scale-150 hover:rotate-45 transition-all duration-300   animate-pulse" style={{ animationDelay: '0.5s' }} />
+      <Minus className="absolute bottom-1/4 left-1/4 w-6 h-6 text-secondary opacity-20 hover:opacity-60 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '1s' }} />
+      <Target className="absolute top-1/2 right-10 w-5 h-5 text-accent opacity-15 hover:opacity-50 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '1.5s' }} />
+      <Sparkles className="absolute bottom-1/3 right-1/3 w-7 h-7 text-primary opacity-25 hover:opacity-60 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '2s' }} />
       
       {/* Embroidery hoops */}
-      <div className="absolute top-10 right-20 w-16 h-16 border-4 border-muted-foreground rounded-full opacity-10 hover:opacity-30 hover:scale-125 hover:rotate-45 transition-all duration-500 cursor-pointer">
+      <div className="absolute top-10 right-20 w-16 h-16 border-4 border-muted-foreground rounded-full opacity-10 hover:opacity-30 hover:scale-125 hover:rotate-45 transition-all duration-500  ">
         <div className="w-full h-full border-2 border-accent rounded-full scale-75 opacity-50"></div>
       </div>
-      <div className="absolute bottom-20 left-20 w-12 h-12 border-3 border-primary rounded-full opacity-15 hover:opacity-40 hover:scale-125 hover:-rotate-45 transition-all duration-500 cursor-pointer">
+      <div className="absolute bottom-20 left-20 w-12 h-12 border-3 border-primary rounded-full opacity-15 hover:opacity-40 hover:scale-125 hover:-rotate-45 transition-all duration-500  ">
         <div className="w-full h-full border-2 border-secondary rounded-full scale-80 opacity-60"></div>
       </div>
       
       {/* Thread spools */}
-      <Circle className="absolute bottom-1/4 right-1/4 w-4 h-8 bg-primary border-2 border-foreground opacity-20 hover:opacity-50 hover:scale-150 transition-all duration-300 cursor-pointer animate-pulse" style={{ animationDelay: '1.2s' }} />
+      <Circle className="absolute bottom-1/4 right-1/4 w-4 h-8 bg-primary border-2 border-foreground opacity-20 hover:opacity-50 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '1.2s' }} />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="mb-6 text-5xl font-black uppercase tracking-tight">
-            <span className="bg-accent text-accent-foreground px-4 py-2 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300 cursor-pointer">
+            <span className="bg-accent text-accent-foreground px-4 py-2 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
               Создай свой
             </span>
             <br />
-            <span className="bg-primary text-primary-foreground px-4 py-2 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block rotate-1 mt-4 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300 cursor-pointer">
+            <span className="bg-primary text-primary-foreground px-4 py-2 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block rotate-1 mt-4 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
               ДИЗАЙН!
             </span>
           </h2>
@@ -124,7 +124,7 @@ export function CustomDesign() {
           {/* Design Options */}
           <div>
             <h3 className="mb-8 text-3xl font-black uppercase tracking-tight">
-              <span className="bg-secondary text-secondary-foreground px-3 py-2 border-2 border-foreground shadow-[4px_4px_0px_0px_#000000] inline-block rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-pointer">
+              <span className="bg-secondary text-secondary-foreground px-3 py-2 border-2 border-foreground shadow-[4px_4px_0px_0px_#000000] inline-block rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-300  ">
                 Выбери тип дизайна
               </span>
             </h3>
@@ -133,7 +133,7 @@ export function CustomDesign() {
               {designOptions.map((option, index) => (
                 <Card 
                   key={option.id}
-                  className={`cursor-pointer transition-all duration-300 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] hover:scale-105 ${
+                  className={`  transition-all duration-300 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] hover:scale-105 ${
                     selectedDesign === option.id 
                       ? 'bg-primary text-primary-foreground scale-105 shadow-[12px_12px_0px_0px_#000000] -translate-x-[6px] -translate-y-[6px]' 
                       : 'bg-card text-card-foreground hover:bg-secondary hover:text-secondary-foreground'
@@ -164,7 +164,7 @@ export function CustomDesign() {
 
             {/* Garment Type Selection */}
             <h3 className="mb-6 text-2xl font-black uppercase tracking-tight">
-              <span className="bg-accent text-accent-foreground px-3 py-2 border-2 border-foreground shadow-[4px_4px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-300 cursor-pointer">
+              <span className="bg-accent text-accent-foreground px-3 py-2 border-2 border-foreground shadow-[4px_4px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-300  ">
                 На что вышиваем?
               </span>
             </h3>
@@ -201,7 +201,7 @@ export function CustomDesign() {
                   {/* Image Upload */}
                   <div>
                     <Label className="font-black uppercase tracking-wide mb-3 block">Загрузи изображения *</Label>
-                    <div className="border-4 border-dashed border-foreground p-6 text-center bg-muted hover:bg-card transition-colors duration-300 cursor-pointer group">
+                    <div className="border-4 border-dashed border-foreground p-6 text-center bg-muted hover:bg-card transition-colors duration-300   group">
                       <input
                         type="file"
                         multiple
@@ -210,7 +210,7 @@ export function CustomDesign() {
                         className="hidden"
                         id="image-upload"
                       />
-                      <label htmlFor="image-upload" className="cursor-pointer">
+                      <label htmlFor="image-upload" className=" ">
                         <Upload className="w-12 h-12 mx-auto mb-3 text-muted-foreground group-hover:text-primary group-hover:scale-110 transition-all duration-300" />
                         <p className="font-bold text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
                           Кликни или перетащи изображения сюда
@@ -315,7 +315,7 @@ export function CustomDesign() {
                         onCheckedChange={(checked) => setFormData(prev => ({ ...prev, rush: !!checked }))}
                         className="border-2 border-foreground"
                       />
-                      <Label htmlFor="rush" className="font-bold cursor-pointer hover:text-primary transition-colors duration-300">
+                      <Label htmlFor="rush" className="font-bold   hover:text-primary transition-colors duration-300">
                         Срочный заказ (+50% к цене, готов за 3-5 дней)
                       </Label>
                     </div>
@@ -326,7 +326,7 @@ export function CustomDesign() {
                         onCheckedChange={(checked) => setFormData(prev => ({ ...prev, newsletter: !!checked }))}
                         className="border-2 border-foreground"
                       />
-                      <Label htmlFor="newsletter" className="font-bold cursor-pointer hover:text-primary transition-colors duration-300">
+                      <Label htmlFor="newsletter" className="font-bold   hover:text-primary transition-colors duration-300">
                         Подписаться на новости и скидки
                       </Label>
                     </div>

@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import { scrollToSection } from '@/lib/utils';
 import LocaleSwitcher from './LocaleSwitcher';
+import { Link } from '@/i18n/navigation';
 
 export function Header({ data, globalData} : { data: any, globalData: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,10 +48,12 @@ export function Header({ data, globalData} : { data: any, globalData: any }) {
         <nav className="flex justify-between items-center">
           {/* Interactive Logo */}
           <div 
-            className="flex items-center space-x-4 cursor-pointer group mr-5"
+            className="flex items-center space-x-4   group mr-5"
             onClick={() => scrollToSec('home')}
           >
+            <Link href="/">
               <Image src={process.env.NEXT_PUBLIC_STRAPI_URL + data.Logo?.url || "/logo.png"} width={data.Logo.width} height={data.Logo.height} alt={data} className=''/>
+            </Link>
           </div>
 
           {/* Desktop Navigation - Interactive */}

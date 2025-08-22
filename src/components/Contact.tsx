@@ -1,7 +1,7 @@
 import { Card, CardContent } from './ui/card';
 import {  MessageCircle } from 'lucide-react';
 import SectionHeader from './ui/SectionHeader';
-import { IconMap } from './ComponentMap';
+import { IconMap } from './SectionMap';
 import ContactForm from './ContactForm';
 
 export default function Contact(data:any) {

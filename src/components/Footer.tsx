@@ -1,6 +1,6 @@
-import { Heart, Scissors } from 'lucide-react';
+import { Scissors } from 'lucide-react';
 import Image from 'next/image';
-import { IconMap } from "@/components/ComponentMap";
+import { IconMap } from "@/components/SectionMap";
 
 export function Footer( data: any) {
   
@@ -54,7 +54,7 @@ export function Footer( data: any) {
                   <li key={idx} className={`px-3 py-2 border-2 border-foreground shadow-[2px_2px_0px_0px_#000000] font-medium cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors bg-card text-card-foreground ${
                     idx % 2 === 0 ? '-rotate-1' : 'rotate-1'
                   }`}>
-                    <a href={link.href} className="block" target='_blank' rel='noopener noreferrer'>
+                    <a href={link.href} className="block" rel='noopener noreferrer'>
                       {link.Label}
                     </a>
                   </li>

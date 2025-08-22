@@ -10,6 +10,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { ReactNode } from "react";
 import type { Metadata } from "next";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 
 type PageParams = {
@@ -78,6 +79,7 @@ export default async function RootLayout({ children, params }: { children: React
           <Footer data={footer} globalData={global}/>
           <Toaster/>
         </NextIntlClientProvider>
+        <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID || ''} />
       </body>
     </html>
   );
