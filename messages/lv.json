@@ -6,12 +6,22 @@
         "ru": "Русский",
         "lv": "Latviešu"
     },
+    "cookieConsent": {
+        "title": "Mēs izmantojam sīkdatnes",
+        "description": "Mēs izmantojam sīkdatnes, lai uzlabotu vietnes funkcionalitāti un nodrošinātu jums personalizētu pieredzi. Jūs varat pieņemt visas sīkdatnes vai izvēlēties tikai nepieciešamās.",
+        "acceptAll": "Pieņemt visas",
+        "acceptNecessary": "Tikai nepieciešamās"
+    },
     "emails": {
         "thankYouForYourEmail": {
             "subject": "Paldies par jūsu ziņu",
             "heading": "Sveiki, {firstName}!",
             "body": "Paldies par jūsu ziņu. Mēs ar jums sazināsimies drīz."
         }
+    },
+
+    "workExamples": {
+        "year": "Gads izveidei"
     },
 
     "ContactForm": {
@@ -33,5 +43,23 @@
     },
     "footer": {
         "madeWithLove": "Izgatavots ar "
+    },
+    
+    "errors": {
+        "captchaErrorOnVerification": "CAPTCHA pārbaudes kļūda. Lūdzu, mēģiniet vēlreiz.",
+        "errorsOnSendingEmails": "Kļūda, sūtot e-pastus.",
+        "allFieldsAreRequired": "Visi lauki ir obligāti"
+    },
+
+    "404": {
+        "title": "Ups! Diegs ir sapinies",
+        "toMainPage": "Mājas lapā",
+        "goBack": "Atpakaļ"
+    },
+    
+    "product": {
+        "specifications": "Specifikācijas",
+        "addToCart": "Pievienot grozam",
+        "outOfStock": "Nav noliktavā"
     }
 }

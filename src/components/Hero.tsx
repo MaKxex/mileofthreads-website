@@ -1,10 +1,11 @@
-"use client";
+'use client'
 
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import { ArrowDown, Scissors, Sparkles, Star } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { scrollToSection } from '@/lib/utils';
+import Link from 'next/link';
 
 
 export default function Hero(data : any) {
@@ -33,16 +34,15 @@ export default function Hero(data : any) {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className={`space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}>
+          <div className={`space-y-8 transition-all duration-1000 opacity-100 translate-x-0`}>
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-7xl font-black leading-none tracking-tight">
-                <span className="bg-card text-card-foreground px-2 border-4 border-foreground inline-block rotate-1 shadow-[6px_6px_0px_0px_#000000] mb-2 hover:rotate-0 hover:scale-105 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
-                  {data.Title}
-                </span><br />
-                <span className="text-primary bg-card px-2 border-4 border-foreground inline-block -rotate-1 shadow-[6px_6px_0px_0px_#000000] mt-4 hover:rotate-0 hover:scale-105 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
-                  {data.SubTitle}
-                </span>
+                {data.Title}
+                <br />
               </h1>
+              <h2 className="text-primary bg-card px-2 border-4 border-foreground inline-block -rotate-1 shadow-[6px_6px_0px_0px_#000000] mt-4 hover:rotate-0 hover:scale-105 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
+                {data.SubTitle}
+              </h2>
               <p className="text-2xl font-bold max-w-lg hover:scale-105 transition-transform duration-300">
                 {data.Text}
               </p>
@@ -62,7 +62,7 @@ export default function Hero(data : any) {
 
           </div>
 
-          <div className={`relative transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
+          <div className={`relative transition-all duration-1000 delay-300 opacity-100 translate-x-0`}>
             {/* Interactive decorative elements */}
             <div className="absolute -top-6 -left-6 w-8 h-8 bg-primary border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] hover:scale-125 hover:rotate-45 transition-all duration-300  "></div>
             <div className="absolute -bottom-6 -right-6 w-8 h-8 bg-secondary border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] hover:scale-125 hover:-rotate-45 transition-all duration-300  "></div>

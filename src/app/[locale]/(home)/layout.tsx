@@ -11,16 +11,11 @@ import { routing } from '@/i18n/routing';
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google'
-
+import Script from 'next/script'
 
 type PageParams = {
   locale: string;
 };
-
-interface LayoutProps {
-  children: ReactNode;
-  params: Promise<PageParams>;
-}
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -79,7 +74,24 @@ export default async function RootLayout({ children, params }: { children: React
           <Footer data={footer} globalData={global}/>
           <Toaster/>
         </NextIntlClientProvider>
-        <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_ID || ''} />
+
+        
+        {/* Google Analytics */}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
       </body>
     </html>
   );

@@ -6,6 +6,12 @@
         "ru": "Русский",
         "lv": "Latviešu"
     },
+    "cookieConsent": {
+        "title": "We use cookies",
+        "description": "We use cookies to improve site functionality and provide you with a personalized experience. You can accept all cookies or choose only necessary ones.",
+        "acceptAll": "Accept all",
+        "acceptNecessary": "Only necessary"
+    },
     "emails": {
         "thankYouForYourEmail": {
             "subject": "Thank you for your message",
@@ -31,5 +37,27 @@
     },
     "footer": {
         "madeWithLove": "Made with "
+    },
+
+    "workExamples": {
+        "year": "Year of Creation"
+    },
+
+    "errors": {
+        "captchaErrorOnVerification": "CAPTCHA verification error. Please try again.",
+        "errorsOnSendingEmails": "Error sending emails.",
+        "allFieldsAreRequired": "All fields are required"
+    },
+
+    "404": {
+        "title": "Oops! The thread is tangled",
+        "toMainPage": "Home to Embroidery",
+        "goBack": "Back"
+    },
+    
+    "product": {
+        "specifications": "Specifications",
+        "addToCart": "Add to Cart",
+        "outOfStock": "Out of Stock"
     }
 }

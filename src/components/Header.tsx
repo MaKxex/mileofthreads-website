@@ -97,7 +97,7 @@ export function Header({ data, globalData} : { data: any, globalData: any }) {
 
         {/* Interactive Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-6 pb-4 border-t-4 border-foreground animate-in slide-in-from-top duration-300">
+          <div className="md:hidden mt-6 pb-4 border-t-4 border-foreground">
             <div className="space-y-3 pt-6">
               {data.Navigation.map((item: any, index: number) => (
                 <button 

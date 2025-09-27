@@ -19,6 +19,7 @@ export default async function Page({
 
   // Fetch the page data from Strapi using the slug
   const pageData = await getPage(slug, locale);  
+  console.log(pageData);
 
   if (!pageData) {
     return notFound();

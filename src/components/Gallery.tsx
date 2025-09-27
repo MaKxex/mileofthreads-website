@@ -1,21 +1,18 @@
 "use client";
 
 import { useState } from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from './ui/dialog';
+import { Modal } from './ui/modal';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Scissors, Sparkles, Minus, Circle, Target } from 'lucide-react';
+import { Scissors, Sparkles, Circle, Target } from 'lucide-react';
 import SectionHeader from './ui/SectionHeader';
+import { useTranslations } from 'next-intl';
 
 export default function Gallery(data: any) {
   const [selectedWork, setSelectedWork] = useState<any>(null);
-  // const [filter, setFilter] = useState<string>('Все');
+  const t = useTranslations('workExamples');
 
-  // const categories = ['Все', ...new Set(embroideryWorks.map(work => work.category))];
-  
-  // const filteredWorks = filter === 'Все' 
-  //   ? embroideryWorks 
-  //   : embroideryWorks.filter(work => work.category === filter);  
+  console.log(data);
 
   return (
     <section id="gallery" className="py-20 bg-background relative overflow-hidden">
@@ -25,7 +22,6 @@ export default function Gallery(data: any) {
       
       {/* Sewing themed floating elements */}
       <Scissors className="absolute top-32 right-1/4 w-10 h-10 text-accent opacity-20 rotate-45 hover:opacity-60 hover:scale-150 hover:rotate-180 transition-all duration-700   animate-pulse" />
-      <Minus className="absolute top-1/4 left-1/5 w-8 h-8 text-primary opacity-15 hover:opacity-50 hover:scale-150 hover:rotate-45 transition-all duration-300   animate-pulse" style={{ animationDelay: '0.5s' }} />
       <Circle className="absolute bottom-1/4 left-1/4 w-6 h-6 text-secondary opacity-20 hover:opacity-60 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '1s' }} />
       <Target className="absolute top-1/2 right-10 w-5 h-5 text-accent opacity-15 hover:opacity-50 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '1.5s' }} />
       <Sparkles className="absolute bottom-1/3 right-1/3 w-7 h-7 text-primary opacity-25 hover:opacity-60 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '2s' }} />
@@ -35,28 +31,8 @@ export default function Gallery(data: any) {
         <SectionHeader
         header={data.Header}/>
 
-        {/* Category Filter */}
-        {/* <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category, index) => (
-            <Button
-              key={category}
-              className={`px-6 py-3 border-4 border-foreground font-black uppercase tracking-wide shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-200 hover:scale-105 ${
-                filter === category 
-                  ? 'bg-primary text-primary-foreground' 
-                  : 'bg-card text-card-foreground hover:bg-secondary hover:text-secondary-foreground'
-              }`}
-              onClick={() => setFilter(category)}
-            >
-              {category}
-            </Button>
-          ))}
-        </div> */}
-
-        {/* Gallery Carousel */}
-        {/* Gallery Carousel */}
         <div className="relative">
           <Carousel className="w-full"  opts={{ align: 'start' }} >
-            {/* Добавили внутренние отступы у контента, чтобы было место для анимации и не было клипа у viewport */}
             <CarouselContent className="-ml-4 px-6 py-6">
               {data.WorkExamples.map((work: any, index: number) => {
                 return (
@@ -88,7 +64,7 @@ export default function Gallery(data: any) {
                         <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-transparent to-transparent transition-opacity duration-300 group-hover:opacity-100" />
 
                         {/* Текст снизу */}
-                        <div className="absolute bottom-0 left-0 right-0 p-4 text-card transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div className="absolute bottom-0 left-0 right-0 p-4 text-card">
                           <h3 className="font-black uppercase tracking-wide text-lg">{work.Title}</h3>
                         </div>
 
@@ -110,40 +86,34 @@ export default function Gallery(data: any) {
         </div>
 
         {/* Work Detail Modal */}
-        <Dialog open={!!selectedWork} onOpenChange={() => setSelectedWork(null)}>
-          <DialogContent className="border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] max-h-[90vh] overflow-y-auto">
+        <Modal 
+          isOpen={!!selectedWork} 
+          onClose={() => setSelectedWork(null)}
+          title={selectedWork?.Title}
+        >
           {selectedWork && (
-                <>
-                  <DialogHeader>
-                    <DialogTitle className="text-3xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-2 border-foreground shadow-[4px_4px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 transition-transform duration-300">
-                      {selectedWork.Title}
-                    </DialogTitle>
-                  </DialogHeader>
-
-                  <div className="grid md:grid-cols-2 gap-8 mt-6">
-                    <div className="aspect-square border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300">
-                      <ImageWithFallback
-                        src={process.env.NEXT_PUBLIC_STRAPI_URL + selectedWork.Image[0].url}
-                        alt={selectedWork.Image.alternativeText}
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="space-y-6">
-                      <p className="text-lg font-medium leading-relaxed bg-muted p-4 border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] transition-all duration-300">
-                        {selectedWork.Description}
-                      </p>
-                      <div className="space-y-4">
-                        <div className="flex justify-between items-center p-3 bg-primary text-primary-foreground border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] transition-all duration-300">
-                          <span className="font-black uppercase">Год создания:</span>
-                          <span className="font-bold">{selectedWork.CreatedDate}</span>
-                        </div>
-                      </div>
-                    </div>
+            <div className="grid md:grid-cols-2 gap-8 mt-6">
+              <div className="aspect-square border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300">
+                <ImageWithFallback
+                  src={process.env.NEXT_PUBLIC_STRAPI_URL + selectedWork.Image[0].url}
+                  alt={selectedWork.Image.alternativeText}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="space-y-6">
+                <p className="text-lg font-medium leading-relaxed bg-muted p-4 border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] transition-all duration-300">
+                  {selectedWork.Description}
+                </p>
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center p-3 bg-primary text-primary-foreground border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] transition-all duration-300">
+                    <span className="font-black uppercase">{t.year}</span>
+                    <span className="font-bold">{selectedWork.CreatedDate}</span>
                   </div>
-                </>
-              )}
-          </DialogContent>
-        </Dialog>
+                </div>
+              </div>
+            </div>
+          )}
+        </Modal>
       </div>
     </section>
   );

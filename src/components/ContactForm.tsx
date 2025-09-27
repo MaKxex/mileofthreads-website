@@ -13,6 +13,7 @@ import { contactAction } from '@/actions/contactForm';
 import {useTranslations} from 'next-intl';
 import { useLocale } from "next-intl";
 import { Turnstile } from "next-turnstile";
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 
 export default function ContactForm() {
@@ -22,11 +23,17 @@ export default function ContactForm() {
   const [state, formAction, pending] = useActionState(contactAction, initial);
   const t = useTranslations('ContactForm');
   const locale = useLocale()
+  
+  const { trackEvent } = useAnalytics();
 
   // Показываем тосты при изменении состояния
   useEffect(() => {
     if (state?.success) {
       toast.success(t('toastMessageSuccessful'));
+      trackEvent('contact_form_submit', {
+        category: 'Contact',
+        label: 'Form Submission'
+      });
     }
     if (state?.error) {
       toast.error(state.error);
@@ -52,6 +59,7 @@ export default function ContactForm() {
                 placeholder={t('namePlaceholder')}
                 required
                 className="border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] bg-input-background font-medium"
+                maxLength={50}
               />
             </div>
             <div>
@@ -63,6 +71,7 @@ export default function ContactForm() {
                 placeholder="your@email.com"
                 required
                 className="border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] bg-input-background font-medium"
+                maxLength={100}
               />
             </div>
           </div>
@@ -75,6 +84,7 @@ export default function ContactForm() {
               placeholder={t('subjectPlaceholder')}
               required
               className="border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] bg-input-background font-medium"
+              maxLength={250}
             />
           </div>
 
@@ -87,6 +97,7 @@ export default function ContactForm() {
               rows={5}
               required
               className="border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] bg-input-background font-medium resize-none"
+              maxLength={2000}
             />
           </div>
 
