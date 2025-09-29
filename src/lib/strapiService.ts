@@ -23,4 +23,23 @@ const getPage = cache(async (slug: string, locale: string) => {
   return response.data;
 });
 
-export { getGlobal, getHeader, getFooter, getPage };
+const getProject = cache(async (slug: string, locale: string) => {
+  console.log(`Fetching project with slug: ${slug} and locale: ${locale}`);
+  
+  const response = await fetchAPI(`/work-examples`, locale, {
+    filters: {
+      slug: {
+        $eq: slug
+      }
+    },
+    populate: 'all'
+  });
+  
+  if (!response?.data?.length) {
+    return null;
+  }
+  
+  return response.data[0];
+});
+
+export { getGlobal, getHeader, getFooter, getPage, getProject };

@@ -11,7 +11,6 @@ export const useAnalytics = () => {
       const analyticsConsent = Cookies.get('analytics-consent') === 'true';
       setIsAnalyticsEnabled(analyticsConsent);
       
-      console.log(analyticsConsent);
       
       if (analyticsConsent && window.gtag && !window.ga) {
         const GA_ID = process.env.NEXT_PUBLIC_GA_ID;

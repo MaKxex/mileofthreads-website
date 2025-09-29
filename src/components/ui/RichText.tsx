@@ -7,8 +7,7 @@ import { Link } from '@/i18n/navigation';
 export default function RichText(content: any) {
 
     content = content.content.richText as BlocksContent;
-    console.log(content);
-
+    
     return (
         <BlocksRenderer
             content={content}

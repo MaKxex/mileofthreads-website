@@ -17,12 +17,10 @@ export default async function Page({
   const resolvedParams = await params;
   const { locale, slug = 'home' } = resolvedParams;
 
-  // Fetch the page data from Strapi using the slug
   const pageData = await getPage(slug, locale);
   
 
   if (!pageData) {
-    // return <div>Page not found</div>;
     return notFound();
   }
 

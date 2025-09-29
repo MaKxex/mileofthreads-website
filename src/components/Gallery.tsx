@@ -12,7 +12,6 @@ export default function Gallery(data: any) {
   const [selectedWork, setSelectedWork] = useState<any>(null);
   const t = useTranslations('workExamples');
 
-  console.log(data);
 
   return (
     <section id="gallery" className="py-20 bg-background relative overflow-hidden">
