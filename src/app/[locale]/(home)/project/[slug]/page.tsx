@@ -1,7 +1,7 @@
-"use client"
-
+import { ProjectDetails } from "@/components/product/ProjectDetails";
 import { getProject } from "@/lib/strapiService";
 import { notFound } from "next/navigation";
+import { IProject } from "@/types/Project";
 
 type PageParams = {
   locale: string;
@@ -13,25 +13,12 @@ export default async function Page({
 }: {
   params: PageParams;
 }) {
-  const { slug, locale } = await Promise.resolve(params);
-  const project = await getProject(slug, locale);
-  
-  console.log('Project data:', project);
-  if (!slug || project === undefined || project === null) {
+  const { slug, locale } = params;
+  const project: IProject | null | undefined = await getProject(slug, locale);
+
+  if (!project) {
     return notFound();
   }
 
-
-  return (
-    <>
-      Hello World
-      <br />
-      <br />
-      <br />
-      <br />
-      {slug}
-      <br />
-      {locale}
-    </>
-  );
+  return <ProjectDetails project={project} />;
 }
