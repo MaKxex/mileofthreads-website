@@ -2,7 +2,7 @@
 
 import { FC } from "react";
 import Image from "next/image";
-import { format } from "date-fns";
+import { format, Locale } from "date-fns";
 import { ru, enUS, lv } from "date-fns/locale";
 import RichText from "../ui/RichText";
 import {IProject} from "@/types/Project";
