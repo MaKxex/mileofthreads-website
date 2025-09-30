@@ -52,13 +52,13 @@ export function Header({ data, globalData} : { data: any, globalData: any }) {
             onClick={() => scrollToSec('home')}
           >
             <Link href="/">
-              <Image src={process.env.NEXT_PUBLIC_STRAPI_URL + data.Logo?.url || "/logo.png"} width={data.Logo.width} height={data.Logo.height} alt={data} className=''/>
+              {data?.Logo?.url && <Image src={process.env.NEXT_PUBLIC_STRAPI_URL + data.Logo.url} width={data.Logo.width} height={data.Logo.height} alt={data.Logo.alternativeText || 'Logo'} className=''/>}
             </Link>
           </div>
 
           {/* Desktop Navigation - Interactive */}
           <div className="hidden md:flex space-x-2">
-            {data.Navigation.map((item: any) => (
+            {data?.Navigation?.map((item: any) => (
               <Button 
                 key={item.id}
                 onClick={() => scrollToSection(item.href)}
@@ -99,7 +99,7 @@ export function Header({ data, globalData} : { data: any, globalData: any }) {
         {isMenuOpen && (
           <div className="md:hidden mt-6 pb-4 border-t-4 border-foreground">
             <div className="space-y-3 pt-6">
-              {data.Navigation.map((item: any, index: number) => (
+              {data?.Navigation?.map((item: any, index: number) => (
                 <button 
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}

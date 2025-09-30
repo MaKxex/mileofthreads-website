@@ -4,13 +4,15 @@ import About from "./About";
 import Contact from "./Contact";
 import dynamic from "next/dynamic";
 import GenericRichText from "./GenericRichText";
+import { CustomDesign } from "./CustomDesign";
 
 export const SectionMap: Record<string, any> = {
   "page-components.hero": Hero,
   "page-components.gallery": Gallery,
   "page-components.about": About,
   "page-components.contact": Contact,
-  "page-components.long-text-post": GenericRichText
+  "page-components.long-text-post": GenericRichText,
+  "page-components.custom-design": CustomDesign,
 };
 
 export const IconMap: Record<string, any> = {

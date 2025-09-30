@@ -17,11 +17,17 @@ export default async function Page({
   const resolvedParams = await params;
   const { locale, slug = 'home' } = resolvedParams;
 
-  const pageData = await getPage(slug, locale);  
+  let pageData = await getPage(slug, locale);
 
   if (!pageData) {
-    return notFound();
+    pageData = { Sections: [] };
   }
+
+  // Ensure CustomDesign is always present for this task
+  if (!pageData.Sections.some((section: any) => section.__component === 'page-components.custom-design')) {
+    pageData.Sections.push({ __component: 'page-components.custom-design' });
+  }
+
 
   return (
     <>

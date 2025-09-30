@@ -5,17 +5,17 @@ import { fetchAPI } from "./api";
 
 const getGlobal = cache(async (locale: string) => {
   const response = await fetchAPI("/global", locale, { populate: "*" });
-  return response.data;
+  return response.data || { defaultSeo: {}, favicon: {}, siteName: "Default Site Name" };
 });
 
 const getHeader = cache(async (locale: string) => {
   const response = await fetchAPI("/header", locale, { populate: "*" });
-  return response.data;
+  return response.data || { Logo: null, Navigation: [] };
 });
 
 const getFooter = cache(async (locale: string) => {
   const response = await fetchAPI("/footer", locale, { populate: "all" });
-  return response.data;
+  return response.data || { Logo: null, Text: { body: '' }, Socials: [], FooterLists: [] };
 });
 
 const getPage = cache(async (slug: string, locale: string) => {
@@ -36,7 +36,7 @@ const getProject = cache(async (slug: string, locale: string) => {
   });
   
   if (!response?.data?.length) {
-    return null;
+    return { title: '', description: '', media: { data: [] } };
   }
   
   return response.data[0];
