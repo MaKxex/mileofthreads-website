@@ -105,7 +105,7 @@ export default function ContactForm() {
             siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''}
             theme="light"
             retry="auto"
-            language={locale}
+            language={locale === 'lv' ? 'en' : locale}
             sandbox={process.env.NODE_ENV === "development"}
 
             onError={() => {
