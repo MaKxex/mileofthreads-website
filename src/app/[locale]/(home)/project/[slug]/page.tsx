@@ -11,9 +11,9 @@ type PageParams = {
 export default async function Page({
   params,
 }: {
-  params: PageParams;
+  params: Promise<PageParams>;
 }) {
-  const { slug, locale } = params;
+  const { slug, locale } = await params;
   const project: IProject | null | undefined = await getProject(slug, locale);
 
   if (!project) {

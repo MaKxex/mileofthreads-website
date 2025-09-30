@@ -19,7 +19,7 @@ export const hasMarketingConsent = () => {
 
 export const initGA = () => {
   if (hasAnalyticsConsent() && GA_TRACKING_ID) {
-    window.gtag('js', new Date());
+    // window.gtag('js', new Date());
     window.gtag('config', GA_TRACKING_ID, {
       page_path: window.location.pathname,
     });

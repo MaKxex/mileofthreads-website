@@ -15,7 +15,7 @@ export const useAnalytics = () => {
       if (analyticsConsent && window.gtag && !window.ga) {
         const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
         if (GA_ID) {
-          window.gtag('js', new Date());
+          // window.gtag('js', new Date() as unknown as string);
           window.gtag('config', GA_ID, {
             page_path: window.location.pathname,
             anonymize_ip: true, // Анонимизируем IP для соответствия GDPR
