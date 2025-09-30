@@ -13,17 +13,23 @@ export const fetchAPI = async (path: string, locale: string = '', params: Record
 
   const requestUrl = `${STRAPI_URL}/api${path}${queryString ? `?${queryString}` : ''}`;
 
-  const response = await fetch(requestUrl, {
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${STRAPI_API_TOKEN}`
-    }
-  });
-  
-  // if (!response.ok) {
-  //   throw new Error(`API error: ${response.status} ${response.statusText}`);
-  // }
+  try {
+    const response = await fetch(requestUrl, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${STRAPI_API_TOKEN}`
+      }
+    });
 
-  const data = await response.json();
-  return data;
+    if (!response.ok) {
+      console.error(`API error: ${response.status} ${response.statusText}`);
+      return { data: null };
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Fetch API failed:", error);
+    return { data: null };
+  }
 };

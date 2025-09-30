@@ -26,22 +26,22 @@ const designOptions: DesignOption[] = [
   { id: 'premium', name: 'Премиум дизайн', price: 75, description: 'Эксклюзивная вышивка с 3D эффектами' }
 ];
 
-const garmentTypes = [
-  { id: 'tshirt', name: 'Футболка', icon: '👕' },
-  { id: 'hoodie', name: 'Толстовка', icon: '🧥' },
-  { id: 'cap', name: 'Кепка', icon: '🧢' },
-  { id: 'bag', name: 'Сумка', icon: '👜' },
-  { id: 'patch', name: 'Нашивка', icon: '🏷️' },
-  { id: 'other', name: 'Другое', icon: '❓' }
+const products = [
+  { id: 't-shirt', name: 'Футболка', icon: '👕', sizes: ['S', 'M', 'L', 'XL', 'XXL'], areas: { front: 'Перед', back: 'Спина', 'left-sleeve': 'Левый рукав', 'right-sleeve': 'Правый рукав'} },
+  { id: 'hoodie', name: 'Толстовка', icon: '🧥', sizes: ['S', 'M', 'L', 'XL', 'XXL'], areas: { front: 'Перед', back: 'Спина', 'left-sleeve': 'Левый рукав', 'right-sleeve': 'Правый рукав'} },
+  { id: 'patch', name: 'Нашивка', icon: '🏷️', sizes: ['S - up to 8 cm', 'M - up to 15 cm'], areas: { front: 'Перед' } }
 ];
 
 export function CustomDesign() {
   const [selectedDesign, setSelectedDesign] = useState<string>('');
-  const [selectedGarment, setSelectedGarment] = useState<string>('');
+  const [selectedProduct, setSelectedProduct] = useState<string>('t-shirt');
+  const [selectedArea, setSelectedArea] = useState<string>('front');
   const [uploadedImages, setUploadedImages] = useState<string[]>([]);
+  const [projectedImage, setProjectedImage] = useState<string | null>(null);
   const [hoveredOption, setHoveredOption] = useState<string | null>(null);
   const [formData, setFormData] = useState({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     description: '',
     size: '',
@@ -66,7 +66,7 @@ export function CustomDesign() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!selectedDesign || !selectedGarment || !formData.name || !formData.email) {
+    if (!selectedDesign || !selectedProduct || !formData.firstName || !formData.lastName || !formData.email) {
       toast.error('Заполните все обязательные поля!');
       return;
     }
@@ -170,19 +170,19 @@ export function CustomDesign() {
             </h3>
             
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {garmentTypes.map((garment, index) => (
+              {products.map((product, index) => (
                 <Button
-                  key={garment.id}
-                  variant={selectedGarment === garment.id ? "default" : "outline"}
+                  key={product.id}
+                  variant={selectedProduct === product.id ? "default" : "outline"}
                   className={`h-20 flex flex-col items-center justify-center gap-2 border-4 border-foreground font-black uppercase tracking-wide shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-200 hover:scale-105 ${
-                    selectedGarment === garment.id 
-                      ? 'bg-primary text-primary-foreground' 
+                    selectedProduct === product.id
+                      ? 'bg-primary text-primary-foreground'
                       : 'bg-card text-card-foreground hover:bg-secondary hover:text-secondary-foreground'
                   } ${index % 2 === 0 ? 'rotate-1 hover:rotate-0' : '-rotate-1 hover:rotate-0'}`}
-                  onClick={() => setSelectedGarment(garment.id)}
+                  onClick={() => setSelectedProduct(product.id)}
                 >
-                  <span className="text-2xl">{garment.icon}</span>
-                  <span className="text-xs">{garment.name}</span>
+                  <span className="text-2xl">{product.icon}</span>
+                  <span className="text-xs">{product.name}</span>
                 </Button>
               ))}
             </div>
@@ -190,6 +190,48 @@ export function CustomDesign() {
 
           {/* Order Form */}
           <div>
+            {/* Mockup Viewer */}
+            <div className="mb-8">
+              <h3 className="mb-8 text-3xl font-black uppercase tracking-tight">
+                <span className="bg-accent text-accent-foreground px-3 py-2 border-2 border-foreground shadow-[4px_4px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 hover:scale-105 transition-all duration-300  ">
+                  Предпросмотр
+                </span>
+              </h3>
+              <div className="relative bg-muted border-4 border-foreground p-4 shadow-[6px_6px_0px_0px_#000000] mb-4">
+                <ImageWithFallback
+                  src={`/mockups/${selectedProduct}-${selectedArea}.png`}
+                  fallbackSrc="/mockups/t-shirt-front.png"
+                  alt={`${selectedProduct} ${selectedArea} mockup`}
+                  width={500}
+                  height={500}
+                  className="w-full h-auto"
+                />
+                {projectedImage && (
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/3">
+                    <ImageWithFallback
+                      src={projectedImage}
+                      fallbackSrc=""
+                      alt="Projected design"
+                      width={150}
+                      height={150}
+                      className="object-contain w-full h-auto"
+                    />
+                  </div>
+                )}
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {Object.entries(products.find(p => p.id === selectedProduct)?.areas || {}).map(([areaKey, areaValue]) => (
+                  <Button
+                    key={areaKey}
+                    variant={selectedArea === areaKey ? 'default' : 'outline'}
+                    onClick={() => setSelectedArea(areaKey)}
+                    className="border-2 border-foreground shadow-[2px_2px_0px_0px_#000000] hover:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200"
+                  >
+                    {areaValue}
+                  </Button>
+                ))}
+              </div>
+            </div>
             <Card className="bg-card border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[4px] hover:-translate-y-[4px] transition-all duration-300 rotate-1 hover:rotate-0">
               <CardHeader>
                 <CardTitle className="text-2xl font-black uppercase tracking-tight text-center bg-primary text-primary-foreground px-3 py-2 border-2 border-foreground shadow-[4px_4px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 transition-transform duration-300">
@@ -222,11 +264,14 @@ export function CustomDesign() {
                     {uploadedImages.length > 0 && (
                       <div className="flex gap-3 mt-4">
                         {uploadedImages.map((image, index) => (
-                          <div key={index} className="relative group">
+                          <div key={index} className="relative group cursor-pointer" onClick={() => setProjectedImage(image)}>
                             <ImageWithFallback
                               src={image}
+                              fallbackSrc=""
                               alt={`Uploaded ${index + 1}`}
-                              className="w-20 h-20 object-cover border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] group-hover:shadow-[6px_6px_0px_0px_#000000] group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] transition-all duration-300"
+                              className={`w-20 h-20 object-cover border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] group-hover:shadow-[6px_6px_0px_0px_#000000] group-hover:-translate-x-[3px] group-hover:-translate-y-[3px] transition-all duration-300 ${
+                                projectedImage === image ? 'border-primary shadow-[6px_6px_0px_0px_#000000] -translate-x-[3px] -translate-y-[3px]' : ''
+                              }`}
                             />
                             <Badge className="absolute -top-2 -right-2 bg-secondary text-secondary-foreground border-2 border-foreground shadow-[2px_2px_0px_0px_#000000] font-black text-xs">
                               {index + 1}
@@ -240,26 +285,36 @@ export function CustomDesign() {
                   {/* Contact Info */}
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="name" className="font-black uppercase tracking-wide">Имя *</Label>
+                      <Label htmlFor="firstName" className="font-black uppercase tracking-wide">Имя *</Label>
                       <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                        id="firstName"
+                        value={formData.firstName}
+                        onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
                         className="border-4 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] focus:shadow-[6px_6px_0px_0px_#000000] focus:-translate-x-[3px] focus:-translate-y-[3px] transition-all duration-300"
                         placeholder="Твое имя"
                       />
                     </div>
                     <div>
-                      <Label htmlFor="email" className="font-black uppercase tracking-wide">Email *</Label>
+                      <Label htmlFor="lastName" className="font-black uppercase tracking-wide">Фамилия *</Label>
                       <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                        id="lastName"
+                        value={formData.lastName}
+                        onChange={(e) => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
                         className="border-4 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] focus:shadow-[6px_6px_0px_0px_#000000] focus:-translate-x-[3px] focus:-translate-y-[3px] transition-all duration-300"
-                        placeholder="твой@email.com"
+                        placeholder="Твоя фамилия"
                       />
                     </div>
+                  </div>
+                  <div>
+                    <Label htmlFor="email" className="font-black uppercase tracking-wide">Email *</Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                      className="border-4 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] focus:shadow-[6px_6px_0px_0px_#000000] focus:-translate-x-[3px] focus:-translate-y-[3px] transition-all duration-300"
+                      placeholder="твой@email.com"
+                    />
                   </div>
 
                   {/* Description */}
@@ -283,12 +338,9 @@ export function CustomDesign() {
                           <SelectValue placeholder="Выбери размер" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="xs">XS</SelectItem>
-                          <SelectItem value="s">S</SelectItem>
-                          <SelectItem value="m">M</SelectItem>
-                          <SelectItem value="l">L</SelectItem>
-                          <SelectItem value="xl">XL</SelectItem>
-                          <SelectItem value="xxl">XXL</SelectItem>
+                          {products.find(p => p.id === selectedProduct)?.sizes.map(size => (
+                            <SelectItem key={size} value={size.toLowerCase()}>{size}</SelectItem>
+                          ))}
                         </SelectContent>
                       </Select>
                     </div>

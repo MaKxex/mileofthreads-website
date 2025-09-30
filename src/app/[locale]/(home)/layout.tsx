@@ -29,19 +29,19 @@ const geistMono = Geist_Mono({
 
 export async function generateMetadata({ params }: { params: Promise<PageParams> }): Promise<Metadata> {
   const resolvedParams = await params;
-  const global = await getGlobal(resolvedParams.locale);
+  const global = await getGlobal(resolvedParams.locale) || { defaultSeo: {}, favicon: {} };
 
   return generateSeoMetadata({
-    title: global?.defaultSeo?.title,
-    description: global?.defaultSeo?.metaDescription,
-    ogImage: process.env.NEXT_PUBLIC_STRAPI_URL + global?.defaultSeo?.ogImage?.url,
-    favicon: process.env.NEXT_PUBLIC_STRAPI_URL + global?.favicon?.url,
+    title: global?.defaultSeo?.title || "Default Title",
+    description: global?.defaultSeo?.metaDescription || "Default description",
+    ogImage: global?.defaultSeo?.ogImage?.url ? process.env.NEXT_PUBLIC_STRAPI_URL + global.defaultSeo.ogImage.url : undefined,
+    favicon: global?.favicon?.url ? process.env.NEXT_PUBLIC_STRAPI_URL + global.favicon.url : undefined,
     jsonLd: {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      name: global?.siteName,
+      name: global?.siteName || "Mile of Threads",
       url: "https://mileofthreads.com",
-      description: global?.defaultSeo?.metaDescription,
+      description: global?.defaultSeo?.metaDescription || "Default description",
     },
   });
 }
@@ -60,18 +60,22 @@ export default async function RootLayout({ children, params }: { children: React
     getGlobal(locale)
   ]);
 
+  const headerData = header || { Logo: null, Navigation: [] };
+  const footerData = footer || { Logo: null, Text: { body: '' }, Socials: [], FooterLists: [] };
+  const globalData = global || {};
+
   return (
     <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <NextIntlClientProvider locale={locale}>
-          <Header data={header} globalData={global}/>
+          <Header data={headerData} globalData={globalData}/>
           <main>
             <div className="my-10"/>
             {children}
           </main>
-          <Footer data={footer} globalData={global}/>
+          <Footer data={footerData} globalData={globalData}/>
           <Toaster/>
         </NextIntlClientProvider>
 

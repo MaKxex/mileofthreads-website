@@ -17,16 +17,13 @@ export function Footer( data: any) {
         <div className="grid md:grid-cols-4 gap-12">
           <div>
             <div className="flex items-center space-x-4 mb-6">
-              {footerData.Logo?.url && <Image src={process.env.NEXT_PUBLIC_STRAPI_URL + footerData.Logo?.url || "/logo.png"} width={footerData.Logo?.width } height={footerData.Logo?.height} alt={footerData.Logo?.alternativeText} className=''/>}
-              {/* <div className="flex flex-col">
-                <Image src={process.env.NEXT_PUBLIC_STRAPI_URL + footerData.Logo?.url || "/logo.png"} width={footerData.Logo?.width } height={footerData.Logo?.height} alt={footerData.Logo?.alternativeText} className=''/>
-              </div> */}
+              {footerData?.Logo?.url && <Image src={process.env.NEXT_PUBLIC_STRAPI_URL + footerData.Logo.url} width={footerData.Logo.width} height={footerData.Logo.height} alt={footerData.Logo.alternativeText || 'Logo'} className=''/>}
             </div>
             <p className="text-base font-medium mb-6 bg-card text-card-foreground border-2 border-foreground p-4 shadow-[4px_4px_0px_0px_#000000] -rotate-1">
               {footerData?.Text?.body}
             </p>
             <div className="flex space-x-4">
-              {footerData?.Socials && footerData.Socials.map((social: any, index: number) => {
+              {footerData?.Socials?.map((social: any, index: number) => {
                 if (!social.icon?.IconList) return null;
                 const Icon = IconMap[social.icon.IconList];
                 return(
@@ -44,13 +41,13 @@ export function Footer( data: any) {
           </div>
 
 
-          {footerData?.FooterLists.map((list: any, index: number) => (
+          {footerData?.FooterLists?.map((list: any, index: number) => (
             <div key={index}>
               <h4 className="font-black uppercase tracking-tight text-lg mb-6 bg-card text-card-foreground px-3 py-2 border-2 border-foreground shadow-[4px_4px_0px_0px_#000000] inline-block rotate-1">
                 {list?.Title}
               </h4>
               <ul className="space-y-3">
-                {list.Links.map((link: any, idx: number) => (
+                {list?.Links?.map((link: any, idx: number) => (
                   <li key={idx} className={`px-3 py-2 border-2 border-foreground shadow-[2px_2px_0px_0px_#000000] font-medium cursor-pointer hover:bg-primary hover:text-primary-foreground transition-colors bg-card text-card-foreground ${
                     idx % 2 === 0 ? '-rotate-1' : 'rotate-1'
                   }`}>
