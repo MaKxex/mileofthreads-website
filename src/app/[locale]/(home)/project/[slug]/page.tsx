@@ -20,5 +20,5 @@ export default async function Page({
     return notFound();
   }
 
-  return <ProjectDetails project={project} />;
+  return <ProjectDetails project={project} locale={locale} />;
 }

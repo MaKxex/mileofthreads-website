@@ -8,7 +8,10 @@ export interface IProject {
     updatedAt: string;
     publishedAt: string;
     locale: string;
-    Description: string;
+    Description: {
+        id: number;
+        richText: object;
+    };
     Image: IStrapiImage[];
 }
 
