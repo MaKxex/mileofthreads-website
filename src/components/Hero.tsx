@@ -40,9 +40,11 @@ export default function Hero(data : any) {
                 {data.Title}
                 <br />
               </h1>
-              <h2 className="text-primary bg-card px-2 border-4 border-foreground inline-block -rotate-1 shadow-[6px_6px_0px_0px_#000000] mt-4 hover:rotate-0 hover:scale-105 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
-                {data.SubTitle}
-              </h2>
+              {data.SubTitle && (
+                <h2 className="text-primary bg-card px-2 border-4 border-foreground inline-block -rotate-1 shadow-[6px_6px_0px_0px_#000000] mt-4 hover:rotate-0 hover:scale-105 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
+                  {data.SubTitle}
+                </h2>
+              )}
               <p className="text-2xl font-bold max-w-lg hover:scale-105 transition-transform duration-300">
                 {data.Text}
               </p>
