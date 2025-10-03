@@ -79,7 +79,7 @@ export default async function RootLayout({ children, params }: { children: React
       {/* Cookiebot */}
       {/* <Script id="Cookiebot" src={`https://consent.cookiebot.com/uc.js`} data-cbid={process.env.COOKIEBOT_ID} data-blockingmode="auto" type="text/javascript"></Script> */}
       {/* Google Analytics */}
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
+      {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} /> */}
     </html>
   );
 }
