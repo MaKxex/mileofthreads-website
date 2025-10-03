@@ -1,6 +1,13 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
 export default function GlobalNotFound() {
   const router = useRouter();
-  router.replace('/not-found');
+
+  useEffect(() => {
+    router.replace('/not-found');
+  }, [router]);
+
+  return null;
 }
