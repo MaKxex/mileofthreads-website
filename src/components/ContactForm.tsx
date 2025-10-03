@@ -15,9 +15,10 @@ import { useLocale } from "next-intl";
 import { Turnstile } from "next-turnstile";
 
 
-export default function ContactForm() {
+export default function ContactForm( turnstileProps: { siteKey: string; sandbox: boolean } ) {
   const initial = { error: undefined, success: false };
   const [turnstileStatus, setTurnstileStatus] = useState('required');
+  const [turnstileLoaded, setTurnstileLoaded] = useState(false);
   const [token, setToken] = useState<string | null>(null);
   const [state, formAction, pending] = useActionState(contactAction, initial);
   const t = useTranslations('ContactForm');
@@ -95,11 +96,11 @@ export default function ContactForm() {
           </div>
 
           <Turnstile
-            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''}
+            siteKey={turnstileProps.siteKey}
+            sandbox={turnstileProps.sandbox}
             theme="light"
             retry="auto"
             language={locale === 'lv' ? 'en' : locale}
-            sandbox={process.env.NODE_ENV === "development"}
 
             onError={() => {
               setTurnstileStatus('error');
@@ -108,7 +109,7 @@ export default function ContactForm() {
             onExpire={() => {
               setTurnstileStatus('expired');
             }}
-
+            onLoad={() => setTurnstileLoaded(true)}
 
             onVerify={(token) => {
               setTurnstileStatus('success');
@@ -118,7 +119,7 @@ export default function ContactForm() {
 
           <Button
             type="submit"
-            disabled={pending || turnstileStatus !== 'success'}
+            disabled={pending || turnstileStatus !== 'success' || !turnstileLoaded}
             className="w-full px-8 py-4 bg-primary text-primary-foreground border-4 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 cursor-pointer"
           >
             {pending ? t('sending') : t('sendButton')}

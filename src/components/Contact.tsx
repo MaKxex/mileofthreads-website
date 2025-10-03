@@ -51,7 +51,10 @@ export default function Contact(data:any) {
           </div>
 
           {/* Contact Form */}
-          <ContactForm/>
+          <ContactForm
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''}
+              sandbox={process.env.NODE_ENV === "development"}
+          />
         </div>
       </div>
     </section>
