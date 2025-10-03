@@ -13,7 +13,6 @@ import { contactAction } from '@/actions/contactForm';
 import {useTranslations} from 'next-intl';
 import { useLocale } from "next-intl";
 import { Turnstile } from "next-turnstile";
-import { useAnalytics } from '@/hooks/useAnalytics';
 
 
 export default function ContactForm() {
@@ -24,16 +23,10 @@ export default function ContactForm() {
   const t = useTranslations('ContactForm');
   const locale = useLocale()
   
-  const { trackEvent } = useAnalytics();
 
-  // Показываем тосты при изменении состояния
   useEffect(() => {
     if (state?.success) {
       toast.success(t('toastMessageSuccessful'));
-      trackEvent('contact_form_submit', {
-        category: 'Contact',
-        label: 'Form Submission'
-      });
     }
     if (state?.error) {
       toast.error(state.error);
