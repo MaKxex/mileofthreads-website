@@ -11,7 +11,6 @@ import { routing } from '@/i18n/routing';
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google'
-import Script from 'next/script'
 
 type PageParams = {
   locale: string;
@@ -77,22 +76,8 @@ export default async function RootLayout({ children, params }: { children: React
 
         
         {/* Google Analytics */}
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}', {
-                page_path: window.location.pathname,
-              });
-            `,
-          }}
-        />
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
     </html>
   );
 }
