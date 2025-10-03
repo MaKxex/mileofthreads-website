@@ -6,12 +6,6 @@
         "ru": "Русский",
         "lv": "Latviešu"
     },
-    "cookieConsent": {
-        "title": "Mēs izmantojam sīkdatnes",
-        "description": "Mēs izmantojam sīkdatnes, lai uzlabotu vietnes funkcionalitāti un nodrošinātu jums personalizētu pieredzi. Jūs varat pieņemt visas sīkdatnes vai izvēlēties tikai nepieciešamās.",
-        "acceptAll": "Pieņemt visas",
-        "acceptNecessary": "Tikai nepieciešamās"
-    },
     "emails": {
         "thankYouForYourEmail": {
             "subject": "Paldies par jūsu ziņu",

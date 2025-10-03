@@ -6,12 +6,6 @@
         "ru": "Русский",
         "lv": "Latviešu"
     },
-    "cookieConsent": {
-        "title": "We use cookies",
-        "description": "We use cookies to improve site functionality and provide you with a personalized experience. You can accept all cookies or choose only necessary ones.",
-        "acceptAll": "Accept all",
-        "acceptNecessary": "Only necessary"
-    },
     "emails": {
         "thankYouForYourEmail": {
             "subject": "Thank you for your message",
