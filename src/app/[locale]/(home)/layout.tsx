@@ -78,7 +78,7 @@ export default async function RootLayout({ children, params }: { children: React
         {/* Cookiebot */}
         <script
           id="CookieDeclaration"
-          src="https://consent.cookiebot.com/164c45a8-0463-45b4-ad33-bfe4bbd169cf/cd.js"
+          src={`https://consent.cookiebot.com/${process.env.COOKIEBOT_ID}/cd.js`}
           type="text/javascript"
           ></script>
       </body>
