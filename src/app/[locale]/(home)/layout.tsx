@@ -11,6 +11,7 @@ import { routing } from '@/i18n/routing';
 import { ReactNode } from "react";
 import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from 'next/script'
 
 type PageParams = {
   locale: string;
@@ -74,9 +75,14 @@ export default async function RootLayout({ children, params }: { children: React
           <Toaster/>
         </NextIntlClientProvider>
 
-        
-        {/* Google Analytics */}
+        {/* Cookiebot */}
+        <script
+          id="CookieDeclaration"
+          src="https://consent.cookiebot.com/164c45a8-0463-45b4-ad33-bfe4bbd169cf/cd.js"
+          type="text/javascript"
+          ></script>
       </body>
+      {/* Google Analytics */}
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
     </html>
   );
