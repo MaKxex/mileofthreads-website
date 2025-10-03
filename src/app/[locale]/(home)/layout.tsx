@@ -75,9 +75,9 @@ export default async function RootLayout({ children, params }: { children: React
           <Toaster/>
         </NextIntlClientProvider>
 
-        {/* Cookiebot */}
-        <script id="Cookiebot" src={`https://consent.cookiebot.com/uc.js`} data-cbid={process.env.COOKIEBOT_ID} data-blockingmode="auto" type="text/javascript"></script>
       </body>
+      {/* Cookiebot */}
+      <script id="Cookiebot" src={`https://consent.cookiebot.com/uc.js`} data-cbid={process.env.COOKIEBOT_ID} data-blockingmode="auto" type="text/javascript"></script>
       {/* Google Analytics */}
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
     </html>
