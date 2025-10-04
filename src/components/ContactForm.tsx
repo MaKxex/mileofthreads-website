@@ -17,7 +17,7 @@ import { Turnstile } from "next-turnstile";
 
 export default function ContactForm( turnstileProps: { siteKey: string; sandbox: boolean } ) {
   const initial = { error: undefined, success: false };
-  const [turnstileStatus, setTurnstileStatus] = useState('required');
+  const [turnstileStatus, setTurnstileStatus] = useState('success');
   const [turnstileLoaded, setTurnstileLoaded] = useState(false);
   const [token, setToken] = useState<string | null>(null);
   const [state, formAction, pending] = useActionState(contactAction, initial);
@@ -95,7 +95,7 @@ export default function ContactForm( turnstileProps: { siteKey: string; sandbox:
             />
           </div>
 
-          <Turnstile
+          {/* <Turnstile
             siteKey={turnstileProps.siteKey}
             sandbox={turnstileProps.sandbox}
             theme="light"
@@ -115,11 +115,11 @@ export default function ContactForm( turnstileProps: { siteKey: string; sandbox:
               setTurnstileStatus('success');
               setToken(token);
             }}
-          />
+          /> */}
 
           <Button
             type="submit"
-            disabled={pending || turnstileStatus !== 'success' || !turnstileLoaded}
+            disabled={pending || turnstileStatus !== 'success'}
             className="w-full px-8 py-4 bg-primary text-primary-foreground border-4 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 cursor-pointer"
           >
             {pending ? t('sending') : t('sendButton')}
