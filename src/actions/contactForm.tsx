@@ -30,14 +30,13 @@ export async function contactAction(
 
   const validationResponse = await validateTurnstileToken({
     token,
-    secretKey: process.env.TURNSTILE_SECRET_KEY!,
+    secretKey: process.env.TURNSTILE_SECRET_KEY || '',
     // Optional: Add an idempotency key to prevent token reuse
     idempotencyKey: v4(),
     sandbox: process.env.NODE_ENV === "development",
   });
 
   console.log(validationResponse);
-  
 
   if (!validationResponse.success) {
     return { error: e('captchaErrorOnVerification') };
