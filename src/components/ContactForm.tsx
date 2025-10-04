@@ -15,10 +15,9 @@ import { useLocale } from "next-intl";
 import { Turnstile } from "next-turnstile";
 
 
-export default function ContactForm( turnstileProps: { siteKey: string; sandbox: boolean } ) {
+export default function ContactForm() {
   const initial = { error: undefined, success: false };
-  const [turnstileStatus, setTurnstileStatus] = useState('success');
-  const [turnstileLoaded, setTurnstileLoaded] = useState(false);
+  const [turnstileStatus, setTurnstileStatus] = useState('required');
   const [token, setToken] = useState<string | null>(null);
   const [state, formAction, pending] = useActionState(contactAction, initial);
   const t = useTranslations('ContactForm');
@@ -95,12 +94,12 @@ export default function ContactForm( turnstileProps: { siteKey: string; sandbox:
             />
           </div>
 
-          {/* <Turnstile
-            siteKey={turnstileProps.siteKey}
-            sandbox={turnstileProps.sandbox}
+          <Turnstile
+            siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ''}
             theme="light"
             retry="auto"
             language={locale === 'lv' ? 'en' : locale}
+            sandbox={process.env.NODE_ENV === "development"}
 
             onError={() => {
               setTurnstileStatus('error');
@@ -109,13 +108,13 @@ export default function ContactForm( turnstileProps: { siteKey: string; sandbox:
             onExpire={() => {
               setTurnstileStatus('expired');
             }}
-            onLoad={() => setTurnstileLoaded(true)}
+
 
             onVerify={(token) => {
               setTurnstileStatus('success');
               setToken(token);
             }}
-          /> */}
+          />
 
           <Button
             type="submit"
