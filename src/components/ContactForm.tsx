@@ -36,8 +36,10 @@ export default function ContactForm() {
   console.log(locale === 'lv' ? 'en' : locale);
   console.log(process.env.NODE_ENV === "development");
   console.log(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || '');
-  console.log(turnstileStatus);
-  
+
+  useEffect(() => {
+    console.log(turnstileStatus);
+  }, [turnstileStatus]);
 
   return (
     <Card className="h-fit border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] bg-card rotate-1">
