@@ -36,6 +36,9 @@ export async function contactAction(
     sandbox: process.env.NODE_ENV === "development",
   });
 
+  console.log(validationResponse);
+  
+
   if (!validationResponse.success) {
     return { error: e('captchaErrorOnVerification') };
   }
