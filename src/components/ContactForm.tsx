@@ -109,7 +109,8 @@ export default function ContactForm() {
             language={locale === 'lv' ? 'en' : locale}
             sandbox={process.env.NODE_ENV === "development"}
 
-            onError={() => {
+            onError={(error) => {
+              console.error('Turnstile error:', error);
               setTurnstileStatus('error');
             }}
 
