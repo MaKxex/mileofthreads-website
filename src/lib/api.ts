@@ -19,10 +19,6 @@ export const fetchAPI = async (path: string, locale: string = '', params: Record
       Authorization: `Bearer ${STRAPI_API_TOKEN}`
     }
   });
-  
-  // if (!response.ok) {
-  //   throw new Error(`API error: ${response.status} ${response.statusText}`);
-  // }
 
   const data = await response.json();
   return data;
