@@ -63,7 +63,7 @@ export default async function RootLayout({ children, params }: { children: React
   return (
     <html lang={locale}>
       {/* Google Analytics */}
-      <GoogleTagManager  gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
+      <GoogleTagManager  gtmId={process.env.NEXT_PUBLIC_GA_ID || ''} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
