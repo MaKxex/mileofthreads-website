@@ -14,6 +14,7 @@ import {useTranslations} from 'next-intl';
 import { useLocale } from "next-intl";
 import { Turnstile } from "next-turnstile";
 
+import { sendGTMEvent } from '@next/third-parties/google'
 
 export default function ContactForm() {
   const initial = { error: undefined, success: false };
@@ -119,6 +120,7 @@ export default function ContactForm() {
           <Button
             type="submit"
             disabled={pending || turnstileStatus !== 'success'}
+            onSubmit={() => sendGTMEvent({event: 'contact_form_submitted'})}
             className="w-full px-8 py-4 bg-primary text-primary-foreground border-4 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 cursor-pointer"
           >
             {pending ? t('sending') : t('sendButton')}

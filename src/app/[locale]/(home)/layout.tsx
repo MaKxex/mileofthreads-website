@@ -10,7 +10,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { ReactNode } from "react";
 import type { Metadata } from "next";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager  } from '@next/third-parties/google'
 import Script from 'next/script'
 
 type PageParams = {
@@ -63,7 +63,7 @@ export default async function RootLayout({ children, params }: { children: React
   return (
     <html lang={locale}>
       {/* Google Analytics */}
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
+      <GoogleTagManager  gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
