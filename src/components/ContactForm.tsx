@@ -120,7 +120,7 @@ export default function ContactForm() {
           <Button
             type="submit"
             disabled={pending || turnstileStatus !== 'success'}
-            onSubmit={() => sendGTMEvent({event: 'contact_form_submitted', value: 1})}
+            onClick={() => sendGTMEvent({event: 'contact_form_submitted', value: 1})}
             className="w-full px-8 py-4 bg-primary text-primary-foreground border-4 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 cursor-pointer"
           >
             {pending ? t('sending') : t('sendButton')}
