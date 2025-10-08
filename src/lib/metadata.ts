@@ -7,7 +7,6 @@ export let globalMetadata: Metadata;
 export async function getGlobalMetadata(locale: string): Promise<Metadata> {
   if (!globalMetadata) {
     const global = await getGlobal(locale);
-    console.log(global);
     
     globalMetadata = generateSeoMetadata({
       title: global?.defaultSeo.metaTitle,
