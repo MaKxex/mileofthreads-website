@@ -16,7 +16,8 @@ export async function generateMetadata({
   params: Promise<PageParams>;
 }): Promise<Metadata> {
   const resolvedParams = await params;
-  const pageData = await getPage(resolvedParams.slug!, resolvedParams.locale);
+  const pageData = await getPage(resolvedParams.slug = 'home', resolvedParams.locale);
+
 
   return {
     title: pageData?.Seo?.metaTitle,
