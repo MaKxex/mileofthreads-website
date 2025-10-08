@@ -2,15 +2,15 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/app/[locale]/globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { getFooter, getGlobal, getHeader } from "@/lib/strapiService";
-import { NextIntlClientProvider } from 'next-intl';
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { ReactNode } from "react";
 import { GoogleTagManager  } from '@next/third-parties/google'
 import Script from 'next/script'
-import { locales } from "@/i18n";
 import {Header} from "@/components/Header";
 import {Footer} from "@/components/Footer";
+import { routing } from "@/i18n/routing";
 
 type PageParams = {
   locale: string;
@@ -26,14 +26,11 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
-}
 
 export default async function RootLayout({ children, params }: { children: ReactNode; params: PageParams }) {
   const { locale } = params;
 
-  if (!locales.includes(locale)) {
+ if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 
