@@ -27,10 +27,9 @@ export async function generateMetadata({
 export default async function Page({
   params,
 }: {
-  params: Promise<PageParams>;
+  params: PageParams;
 }) {
-  const resolvedParams = await params;
-  const { locale, slug = 'home' } = resolvedParams;
+  const { locale, slug = 'home' } = params;
 
   const pageData = await getPage(slug, locale);
   
