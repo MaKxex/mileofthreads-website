@@ -13,9 +13,10 @@ type PageParams = {
 export async function generateMetadata({
   params,
 }: {
-  params: PageParams;
+  params: Promise<PageParams>;
 }): Promise<Metadata> {
-  const pageData = await getPage(params.slug || 'home', params.locale);
+  const resolvedParams = await params;
+  const pageData = await getPage(resolvedParams.slug!, resolvedParams.locale);
 
   return {
     title: pageData?.Seo?.metaTitle,

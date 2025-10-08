@@ -7,15 +7,16 @@ import { Metadata } from "next";
 
 type PageParams = {
   locale: string;
-  slug: string;
+  slug?: string;
 };
 
 export async function generateMetadata({
   params,
 }: {
-  params: PageParams;
+  params: Promise<PageParams>;
 }): Promise<Metadata> {
-  const pageData = await getPage(params.slug, params.locale);
+  const resolvedParams = await params;
+  const pageData = await getPage(resolvedParams.slug!, resolvedParams.locale);
 
   return {
     title: pageData?.Seo?.metaTitle,
@@ -27,11 +28,12 @@ export async function generateMetadata({
 export default async function Page({
   params,
 }: {
-  params: PageParams;
+  params: Promise<PageParams>;
 }) {
-  const { locale, slug = 'home' } = params;
+  const resolvedParams = await params;
+  const { locale, slug } = resolvedParams;
 
-  const pageData = await getPage(slug, locale);
+  const pageData = await getPage(slug!, locale);
   
 
   if (!pageData) {

@@ -1,7 +1,6 @@
 import "@/app/[locale]/globals.css"
-import { get } from "http";
 import { Metadata } from "next";
-import { hasLocale, NextIntlClientProvider, useTranslations } from 'next-intl';
+import {NextIntlClientProvider } from 'next-intl';
 import { getTranslations } from "next-intl/server";
 
 type PageParams = {
@@ -12,7 +11,7 @@ type PageParams = {
 export async function generateMetadata({
   params,
 }: {
-  params: PageParams;
+  params: Promise<PageParams>;
 }): Promise<Metadata> {
   
 
