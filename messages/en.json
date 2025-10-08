@@ -44,6 +44,8 @@
     },
 
     "404": {
+        "metaTitle": "Page Not Found",
+        "metaDescription": "Sorry, the page you are looking for does not exist.",
         "title": "Oops! The thread is tangled",
         "toMainPage": "Home to Embroidery",
         "goBack": "Back"

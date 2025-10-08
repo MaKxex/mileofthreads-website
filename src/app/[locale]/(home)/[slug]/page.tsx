@@ -3,11 +3,26 @@ import { getPage } from "@/lib/strapiService";
 import { SectionMap } from "@/components/SectionMap";
 import { notFound } from "next/navigation";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Metadata } from "next";
 
 type PageParams = {
   locale: string;
-  slug?: string;
+  slug: string;
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: PageParams;
+}): Promise<Metadata> {
+  const pageData = await getPage(params.slug, params.locale);
+
+  return {
+    title: pageData?.Seo?.metaTitle,
+    description: pageData?.Seo?.metaDescription,
+  }
+}
+
 
 export default async function Page({
   params,

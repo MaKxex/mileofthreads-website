@@ -46,6 +46,8 @@
     },
 
     "404": {
+        "metaTitle": "Lapa nav atrasta",
+        "metaDescription": "Atvainojiet, lapa, kuru meklējat, neeksistē.",
         "title": "Ups! Diegs ir sapinies",
         "toMainPage": "Mājas lapā",
         "goBack": "Atpakaļ"

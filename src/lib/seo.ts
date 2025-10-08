@@ -1,5 +1,5 @@
 // lib/seo.ts
-const DOMAIN = "https://mileofthreads.com";
+const DOMAIN = process.env.NEXT_PUBLIC_SITE_URL;
 const DEFAULT_OG_IMAGE = "/og-image.png";
 const DEFAULT_FAVICON = "/favicon.ico";
 
@@ -22,19 +22,17 @@ export function generateSeoMetadata({
   twitterHandle = "@d__raptis",
   ogType = "website",
   favicon = DEFAULT_FAVICON,
+  googleVerification = "your-google-verification-code",
   jsonLd,
 }: SeoOptions) {
   return {
     title: {
       default: title,
-      template: "%s – mile of Threads",
+      template: "%s | mile of Threads",
     },
     description,
     icons: {
       icon: favicon,
-    },
-    verification: {
-      google: "ВАШ_ВЕРИФИКАЦИОННЫЙ_КОД",
     },
     openGraph: {
       title,

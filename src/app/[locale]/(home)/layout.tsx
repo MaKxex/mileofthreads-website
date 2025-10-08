@@ -1,17 +1,16 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { Header } from "@/components/Header";
 import "@/app/[locale]/globals.css";
-import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { getFooter, getGlobal, getHeader } from "@/lib/strapiService";
-import { generateSeoMetadata } from "@/lib/seo";
-import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { routing } from '@/i18n/routing';
 import { ReactNode } from "react";
-import type { Metadata } from "next";
-import { GoogleAnalytics, GoogleTagManager  } from '@next/third-parties/google'
+import { GoogleTagManager  } from '@next/third-parties/google'
 import Script from 'next/script'
+import { locales } from "@/i18n";
+import {Header} from "@/components/Header";
+import {Footer} from "@/components/Footer";
 
 type PageParams = {
   locale: string;
@@ -27,30 +26,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export async function generateMetadata({ params }: { params: Promise<PageParams> }): Promise<Metadata> {
-  const resolvedParams = await params;
-  const global = await getGlobal(resolvedParams.locale);
-
-  return generateSeoMetadata({
-    title: global?.defaultSeo?.title,
-    description: global?.defaultSeo?.metaDescription,
-    ogImage: process.env.NEXT_PUBLIC_STRAPI_URL + global?.defaultSeo?.ogImage?.url,
-    favicon: process.env.NEXT_PUBLIC_STRAPI_URL + global?.favicon?.url,
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      name: global?.siteName,
-      url: "https://mileofthreads.com",
-      description: global?.defaultSeo?.metaDescription,
-    },
-  });
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
 }
 
-export default async function RootLayout({ children, params }: { children: ReactNode; params: Promise<PageParams> }) {
-  const resolvedParams = await params;
-  const { locale } = resolvedParams;
+export default async function RootLayout({ children, params }: { children: ReactNode; params: PageParams }) {
+  const { locale } = params;
 
-  if (!hasLocale(routing.locales, locale)) {
+  if (!locales.includes(locale)) {
     notFound();
   }
 
@@ -59,6 +42,8 @@ export default async function RootLayout({ children, params }: { children: React
     getFooter(locale),
     getGlobal(locale)
   ]);
+
+  const messages = await getMessages({locale});
 
   return (
     <html lang={locale}>
@@ -70,7 +55,7 @@ export default async function RootLayout({ children, params }: { children: React
       >
         <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GA_ID || ''}`}
         height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
-        <NextIntlClientProvider locale={locale}>
+        <NextIntlClientProvider locale={locale} messages={messages}>
           <Header data={header} globalData={global}/>
           <main>
             <div className="my-10"/>
@@ -79,8 +64,7 @@ export default async function RootLayout({ children, params }: { children: React
           <Footer data={footer} globalData={global}/>
           <Toaster/>
         </NextIntlClientProvider>
-
-      {/* Cookiebot */}
+      
       <Script id="Cookiebot" src={`https://consent.cookiebot.com/uc.js`} data-cbid={process.env.COOKIEBOT_ID} data-blockingmode="auto" type="text/javascript" strategy="beforeInteractive"/>
       </body>
     </html>
