@@ -28,7 +28,7 @@ const geistMono = Geist_Mono({
 
 
 export default async function RootLayout({ children, params }: { children: ReactNode; params: PageParams }) {
-  const { locale } = params;
+  const { locale } = await params;
 
  if (!hasLocale(routing.locales, locale)) {
     notFound();
@@ -49,6 +49,7 @@ export default async function RootLayout({ children, params }: { children: React
       
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
         <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_PUBLIC_GA_ID || ''}`}
         height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>

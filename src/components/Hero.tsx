@@ -2,11 +2,9 @@
 
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { ArrowDown, Scissors, Sparkles, Star } from 'lucide-react';
+import { Scissors, Sparkles, Star } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { scrollToSection } from '@/lib/utils';
-import Link from 'next/link';
-import { sendGTMEvent } from '@next/third-parties/google';
 
 
 export default function Hero(data : any) {
@@ -20,8 +18,6 @@ export default function Hero(data : any) {
     const element = document.getElementById('gallery');
     element?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  sendGTMEvent({event: 'test1', value: 1});
 
   return (
     <section id="home" className="min-h-screen flex items-center py-20 bg-background relative overflow-hidden">
