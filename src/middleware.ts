@@ -37,6 +37,6 @@ export const config = {
      * - sitemap.xml (sitemap file)
      * - robots.txt (robots file)
      */
-    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.svg$|.*\\.png$|.*\\.jpg$|.*\\.webp$|robots.txt|sitemap.xml).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|.*\\.svg$|.*\\.png$|.*\\.jpg$|.*\\.webp$|robots.txt|sitemap.xml|sitemap-.*\\.xml).*)',
   ],
 };
