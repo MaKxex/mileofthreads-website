@@ -8,7 +8,7 @@ module.exports = {
   changefreq: 'daily',
   priority: 0.7,
   exclude: ['/api/*', '/server-sitemap.xml'],
-  generateIndexSitemap: true,
+  generateIndexSitemap: false,
   alternateRefs: [
     {
       href: 'https://mileofthreads.com/en',
@@ -51,7 +51,6 @@ module.exports = {
           }))
         });
 
-        // Добавляем страницы проектов для текущей локали
         for (const [documentId, localizedProjects] of Object.entries(projectsByDocId)) {
           const project = localizedProjects[locale];
           if (project) {
