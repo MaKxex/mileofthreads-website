@@ -14,7 +14,7 @@ interface ModalProps {
 export function Modal({ isOpen, onClose, title, children, className = '' }: ModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent showCloseButton={false} className={`border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] w-[90vw] h-[90vh] !max-w-none max-h-[90vh] overflow-y-auto ${className}`}>
+      <DialogContent showCloseButton={false} className={`border-1 border-foreground shadow-[8px_8px_0px_0px_#000000] w-[90vw] h-[90vh] !max-w-none max-h-[90vh] overflow-y-auto ${className}`}>
         <div>
           {title && (
             <DialogHeader className="mb-6 flex flex-col items-start gap-4">

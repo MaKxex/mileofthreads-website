@@ -62,7 +62,7 @@ export default function LocaleSwitcherButton({ defaultValue, locales, label }: P
       </button>
 
       {isOpen && (
-        <ul className="absolute right-0 mt-2 z-50 bg-card border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] min-w-[120px]">
+        <ul className="absolute right-0 mt-2 z-50 bg-card border-1 border-foreground shadow-[8px_8px_0px_0px_#000000] min-w-[120px]">
           {locales.map((locale, index) => (
             <li key={locale.code}>
               <button

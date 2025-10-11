@@ -2,7 +2,6 @@
 
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { Scissors, Sparkles, Circle, Target } from 'lucide-react';
 import SectionHeader from './ui/SectionHeader';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
@@ -12,17 +11,6 @@ export default function Gallery(data: any) {
 
   return (
     <section id="gallery" className="py-20 bg-background relative overflow-hidden">
-      {/* Enhanced Thematic Background Elements */}
-      <div className="absolute top-10 right-10 w-24 h-24 bg-primary border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] rotate-45 opacity-5 hover:opacity-20 hover:scale-125 hover:rotate-90 transition-all duration-500  "></div>
-      <div className="absolute bottom-20 left-10 w-16 h-16 bg-secondary border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] -rotate-12 opacity-5 hover:opacity-20 hover:scale-125 hover:rotate-45 transition-all duration-500  "></div>
-      
-      {/* Sewing themed floating elements */}
-      <Scissors className="absolute top-32 right-1/4 w-10 h-10 text-accent opacity-20 rotate-45 hover:opacity-60 hover:scale-150 hover:rotate-180 transition-all duration-700   animate-pulse" />
-      <Circle className="absolute bottom-1/4 left-1/4 w-6 h-6 text-secondary opacity-20 hover:opacity-60 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '1s' }} />
-      <Target className="absolute top-1/2 right-10 w-5 h-5 text-accent opacity-15 hover:opacity-50 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '1.5s' }} />
-      <Sparkles className="absolute bottom-1/3 right-1/3 w-7 h-7 text-primary opacity-25 hover:opacity-60 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '2s' }} />
-      
-      
       <div className="container mx-auto px-6 relative z-10">
         <SectionHeader
         header={data.Header}/>
@@ -35,7 +23,7 @@ export default function Gallery(data: any) {
                   <CarouselItem key={work.id ?? index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                     <Link href={`/${locale}/project/${work.slug}`}>
                       <div
-                        className={`group relative will-change-transform cursor-pointer transition-all duration-300 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] hover:scale-105 hover:z-30 ${
+                        className={`group relative will-change-transform cursor-pointer transition-all duration-300 border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] hover:scale-105 hover:z-30 ${
                           index % 4 === 0
                             ? "rotate-1"
                             : index % 4 === 1
@@ -75,8 +63,8 @@ export default function Gallery(data: any) {
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious className="bg-primary text-primary-foreground border-4 border-foreground shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[-4px]  transition-all duration-200 hover:bg-secondary hover:text-secondary-foreground" />
-            <CarouselNext className="bg-primary text-primary-foreground border-4 border-foreground shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] transition-all duration-200 hover:bg-secondary hover:text-secondary-foreground" />
+            <CarouselPrevious className="bg-primary text-primary-foreground border-1 border-foreground shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[-4px]  transition-all duration-200 hover:bg-secondary hover:text-secondary-foreground" />
+            <CarouselNext className="bg-primary text-primary-foreground border-1 border-foreground shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] transition-all duration-200 hover:bg-secondary hover:text-secondary-foreground" />
           </Carousel>
         </div>
       </div>

@@ -2,12 +2,12 @@ export default function SectionHeader(header: any) {
     return (
         <div className="text-center mb-8 md:mb-16">
           <h2 className="mb-4 md:mb-6 text-3xl md:text-5xl font-black uppercase tracking-tight">
-            <span className="bg-card text-card-foreground px-3 py-1 md:px-4 md:py-2 border-2 md:border-4 border-foreground shadow-[4px_4px_0px_0px_#000000] md:shadow-[6px_6px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 hover:scale-110 transition-all duration-300">
+            <span className="bg-card text-card-foreground px-3 py-1 md:px-4 md:py-2 border-2 md:border-1 border-foreground shadow-[4px_4px_0px_0px_#000000] md:shadow-[6px_6px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 hover:scale-110 transition-all duration-300">
               {header?.header?.Title}
             </span>
             <br />
             {header?.header?.SubTitle && (
-                <span className="bg-primary text-primary-foreground px-3 py-1 md:px-4 md:py-2 border-2 md:border-4 border-foreground shadow-[4px_4px_0px_0px_#000000] md:shadow-[6px_6px_0px_0px_#000000] inline-block rotate-1 mt-2 md:mt-4 hover:rotate-0 hover:scale-110 transition-all duration-300">
+                <span className="bg-primary text-primary-foreground px-3 py-1 md:px-4 md:py-2 border-2 md:border-1 border-foreground shadow-[4px_4px_0px_0px_#000000] md:shadow-[6px_6px_0px_0px_#000000] inline-block rotate-1 mt-2 md:mt-4 hover:rotate-0 hover:scale-110 transition-all duration-300">
                 {header?.header?.SubTitle}
                 </span>
             )}

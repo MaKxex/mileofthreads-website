@@ -7,11 +7,6 @@ import ContactForm from './ContactForm';
 export default function Contact(data:any) {
   return (
     <section id="contact" className="py-20 bg-background relative overflow-hidden">
-      {/* Geometric Background Elements */}
-      <div className="absolute top-20 left-20 w-12 h-12 bg-primary border-4 border-foreground shadow-[4px_4px_0px_0px_#000000] rotate-45 opacity-20"></div>
-      <div className="absolute bottom-20 right-20 w-16 h-16 bg-secondary border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] -rotate-12 opacity-20"></div>
-      <MessageCircle className="absolute top-40 left-40 w-10 h-10 text-accent opacity-10 rotate-12" />
-      
       <div className="container mx-auto px-6 relative z-10">
         <SectionHeader header={data?.Header}/>
 
@@ -27,7 +22,7 @@ export default function Contact(data:any) {
 
                   const IconComponent = IconMap[info?.icon?.IconList];
                   return (
-                  <Card key={index} className={`border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] ${
+                  <Card key={index} className={`border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] ${
                     index % 2 === 0 ? 'rotate-1' : '-rotate-1'
                   } hover:rotate-0 transition-transform duration-300`}>
                     <CardContent className="p-6">

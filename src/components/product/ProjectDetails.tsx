@@ -19,7 +19,6 @@ export const ProjectDetails: FC<Props> = ({ project, locale }) => {
 
     const { Title, Description, Image: images, CreatedDate } = project;
     const mainImage = images?.[0];
-    const otherImages = images?.slice(1) || [];
     
     const locales: { [key: string]: Locale } = {
         ru,
@@ -49,24 +48,6 @@ export const ProjectDetails: FC<Props> = ({ project, locale }) => {
                         {Description && Description.richText && <RichText content={Description} />}
                     </div>
             </div>
-            {otherImages.length > 0 && (
-                <div className="mt-12">
-                    <h2 className="text-3xl font-bold mb-6 text-center">Gallery</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                        {otherImages.map((image) => (
-                            <div key={image.id} className="w-full h-64 relative">
-                                <Image
-                                    src={process.env.NEXT_PUBLIC_STRAPI_URL + image.url || ""}
-                                    alt={image.alternativeText || "Project Image"}
-                                    fill
-                                    style={{objectFit: 'cover'}}
-                                    className="rounded-lg"
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            )}
         </div>
     );
 };

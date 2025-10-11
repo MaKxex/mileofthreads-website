@@ -39,14 +39,10 @@ export function Header({ data, globalData} : { data: any, globalData: any }) {
     setActiveSection(sectionId);
   };
 
-
-
-
   return (
-    <header className="fixed top-5 left-5 right-5 bg-card border-4 border-foreground z-50 shadow-[8px_8px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-y-[4px] transition-all duration-300">
+    <header className="fixed w-full border-b-1 border-foreground z-50 bg-color-">
       <div className="container mx-auto px-6 py-4">
         <nav className="flex justify-between items-center">
-          {/* Interactive Logo */}
           <div 
             className="flex items-center space-x-4   group mr-5"
             onClick={() => scrollToSec('home')}

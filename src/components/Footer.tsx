@@ -8,11 +8,6 @@ export function Footer( data: any) {
   
   return (
     <footer className="bg-muted py-16 relative overflow-hidden border-t-4 border-foreground">
-      {/* Simplified Geometric Background Elements */}
-      <div className="absolute top-4 left-4 w-8 h-8 bg-primary border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] rotate-45 opacity-30"></div>
-      <div className="absolute bottom-4 right-4 w-8 h-8 bg-secondary border-2 border-foreground shadow-[3px_3px_0px_0px_#000000] -rotate-45 opacity-30"></div>
-      <Scissors className="absolute top-8 left-1/4 w-8 h-8 text-muted-foreground opacity-10 rotate-45" />
-      
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid md:grid-cols-4 gap-12">
           <div>

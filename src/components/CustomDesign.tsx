@@ -83,8 +83,8 @@ export function CustomDesign() {
   return (
     <section id="custom" className="py-20 bg-muted relative overflow-hidden">
       {/* Enhanced Thematic Background Elements */}
-      <div className="absolute top-15 left-10 w-14 h-14 bg-primary border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] rotate-12 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-90 transition-all duration-500  "></div>
-      <div className="absolute bottom-10 right-15 w-18 h-18 bg-secondary border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] -rotate-45 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-12 transition-all duration-500  "></div>
+      <div className="absolute top-15 left-10 w-14 h-14 bg-primary border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] rotate-12 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-90 transition-all duration-500  "></div>
+      <div className="absolute bottom-10 right-15 w-18 h-18 bg-secondary border-1 border-foreground shadow-[8px_8px_0px_0px_#000000] -rotate-45 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-12 transition-all duration-500  "></div>
       
       {/* Sewing themed floating elements */}
       <Scissors className="absolute top-20 right-1/4 w-10 h-10 text-accent opacity-20 rotate-45 hover:opacity-60 hover:scale-150 hover:rotate-180 transition-all duration-700   animate-pulse" />
@@ -94,7 +94,7 @@ export function CustomDesign() {
       <Sparkles className="absolute bottom-1/3 right-1/3 w-7 h-7 text-primary opacity-25 hover:opacity-60 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '2s' }} />
       
       {/* Embroidery hoops */}
-      <div className="absolute top-10 right-20 w-16 h-16 border-4 border-muted-foreground rounded-full opacity-10 hover:opacity-30 hover:scale-125 hover:rotate-45 transition-all duration-500  ">
+      <div className="absolute top-10 right-20 w-16 h-16 border-1 border-muted-foreground rounded-full opacity-10 hover:opacity-30 hover:scale-125 hover:rotate-45 transition-all duration-500  ">
         <div className="w-full h-full border-2 border-accent rounded-full scale-75 opacity-50"></div>
       </div>
       <div className="absolute bottom-20 left-20 w-12 h-12 border-3 border-primary rounded-full opacity-15 hover:opacity-40 hover:scale-125 hover:-rotate-45 transition-all duration-500  ">
@@ -107,11 +107,11 @@ export function CustomDesign() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="mb-6 text-5xl font-black uppercase tracking-tight">
-            <span className="bg-accent text-accent-foreground px-4 py-2 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
+            <span className="bg-accent text-accent-foreground px-4 py-2 border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
               Создай свой
             </span>
             <br />
-            <span className="bg-primary text-primary-foreground px-4 py-2 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block rotate-1 mt-4 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
+            <span className="bg-primary text-primary-foreground px-4 py-2 border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block rotate-1 mt-4 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
               ДИЗАЙН!
             </span>
           </h2>
@@ -133,7 +133,7 @@ export function CustomDesign() {
               {designOptions.map((option, index) => (
                 <Card 
                   key={option.id}
-                  className={`  transition-all duration-300 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] hover:scale-105 ${
+                  className={`  transition-all duration-300 border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] hover:scale-105 ${
                     selectedDesign === option.id 
                       ? 'bg-primary text-primary-foreground scale-105 shadow-[12px_12px_0px_0px_#000000] -translate-x-[6px] -translate-y-[6px]' 
                       : 'bg-card text-card-foreground hover:bg-secondary hover:text-secondary-foreground'
@@ -174,7 +174,7 @@ export function CustomDesign() {
                 <Button
                   key={garment.id}
                   variant={selectedGarment === garment.id ? "default" : "outline"}
-                  className={`h-20 flex flex-col items-center justify-center gap-2 border-4 border-foreground font-black uppercase tracking-wide shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-200 hover:scale-105 ${
+                  className={`h-20 flex flex-col items-center justify-center gap-2 border-1 border-foreground font-black uppercase tracking-wide shadow-[4px_4px_0px_0px_#000000] hover:shadow-none hover:translate-x-[4px] hover:translate-y-[4px] transition-all duration-200 hover:scale-105 ${
                     selectedGarment === garment.id 
                       ? 'bg-primary text-primary-foreground' 
                       : 'bg-card text-card-foreground hover:bg-secondary hover:text-secondary-foreground'
@@ -190,7 +190,7 @@ export function CustomDesign() {
 
           {/* Order Form */}
           <div>
-            <Card className="bg-card border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[4px] hover:-translate-y-[4px] transition-all duration-300 rotate-1 hover:rotate-0">
+            <Card className="bg-card border-1 border-foreground shadow-[8px_8px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[4px] hover:-translate-y-[4px] transition-all duration-300 rotate-1 hover:rotate-0">
               <CardHeader>
                 <CardTitle className="text-2xl font-black uppercase tracking-tight text-center bg-primary text-primary-foreground px-3 py-2 border-2 border-foreground shadow-[4px_4px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 transition-transform duration-300">
                   Детали заказа
@@ -201,7 +201,7 @@ export function CustomDesign() {
                   {/* Image Upload */}
                   <div>
                     <Label className="font-black uppercase tracking-wide mb-3 block">Загрузи изображения *</Label>
-                    <div className="border-4 border-dashed border-foreground p-6 text-center bg-muted hover:bg-card transition-colors duration-300   group">
+                    <div className="border-1 border-dashed border-foreground p-6 text-center bg-muted hover:bg-card transition-colors duration-300   group">
                       <input
                         type="file"
                         multiple
@@ -245,7 +245,7 @@ export function CustomDesign() {
                         id="name"
                         value={formData.name}
                         onChange={(e) => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                        className="border-4 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] focus:shadow-[6px_6px_0px_0px_#000000] focus:-translate-x-[3px] focus:-translate-y-[3px] transition-all duration-300"
+                        className="border-1 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] focus:shadow-[6px_6px_0px_0px_#000000] focus:-translate-x-[3px] focus:-translate-y-[3px] transition-all duration-300"
                         placeholder="Твое имя"
                       />
                     </div>
@@ -256,7 +256,7 @@ export function CustomDesign() {
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                        className="border-4 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] focus:shadow-[6px_6px_0px_0px_#000000] focus:-translate-x-[3px] focus:-translate-y-[3px] transition-all duration-300"
+                        className="border-1 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] focus:shadow-[6px_6px_0px_0px_#000000] focus:-translate-x-[3px] focus:-translate-y-[3px] transition-all duration-300"
                         placeholder="твой@email.com"
                       />
                     </div>
@@ -269,7 +269,7 @@ export function CustomDesign() {
                       id="description"
                       value={formData.description}
                       onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-                      className="border-4 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] focus:shadow-[6px_6px_0px_0px_#000000] focus:-translate-x-[3px] focus:-translate-y-[3px] transition-all duration-300 min-h-[120px]"
+                      className="border-1 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] focus:shadow-[6px_6px_0px_0px_#000000] focus:-translate-x-[3px] focus:-translate-y-[3px] transition-all duration-300 min-h-[120px]"
                       placeholder="Опиши свой дизайн: размер, цвета, особые пожелания..."
                     />
                   </div>
@@ -279,7 +279,7 @@ export function CustomDesign() {
                     <div>
                       <Label htmlFor="size" className="font-black uppercase tracking-wide">Размер</Label>
                       <Select value={formData.size} onValueChange={(value) => setFormData(prev => ({ ...prev, size: value }))}>
-                        <SelectTrigger className="border-4 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] transition-all duration-300">
+                        <SelectTrigger className="border-1 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] transition-all duration-300">
                           <SelectValue placeholder="Выбери размер" />
                         </SelectTrigger>
                         <SelectContent>
@@ -301,7 +301,7 @@ export function CustomDesign() {
                         max="10"
                         value={formData.quantity}
                         onChange={(e) => setFormData(prev => ({ ...prev, quantity: e.target.value }))}
-                        className="border-4 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] focus:shadow-[6px_6px_0px_0px_#000000] focus:-translate-x-[3px] focus:-translate-y-[3px] transition-all duration-300"
+                        className="border-1 border-foreground shadow-[3px_3px_0px_0px_#000000] hover:shadow-[6px_6px_0px_0px_#000000] hover:-translate-x-[3px] hover:-translate-y-[3px] focus:shadow-[6px_6px_0px_0px_#000000] focus:-translate-x-[3px] focus:-translate-y-[3px] transition-all duration-300"
                       />
                     </div>
                   </div>
@@ -349,7 +349,7 @@ export function CustomDesign() {
                   <Button 
                     type="submit"
                     size="lg" 
-                    className="w-full px-8 py-4 bg-primary text-primary-foreground border-4 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 hover:scale-105 hover:bg-accent hover:text-accent-foreground group"
+                    className="w-full px-8 py-4 bg-primary text-primary-foreground border-1 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 hover:scale-105 hover:bg-accent hover:text-accent-foreground group"
                   >
                     <Send className="w-5 h-5 mr-3 group-hover:translate-x-2 transition-transform duration-300" />
                     Отправить заказ

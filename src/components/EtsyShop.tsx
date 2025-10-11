@@ -61,8 +61,8 @@ export function EtsyShop() {
   return (
     <section id="etsy" className="py-20 bg-background relative overflow-hidden">
       {/* Thematic Background Elements */}
-      <div className="absolute top-10 left-20 w-12 h-12 bg-primary border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] rotate-45 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-90 transition-all duration-500  "></div>
-      <div className="absolute bottom-20 right-20 w-16 h-16 bg-secondary border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] -rotate-12 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-45 transition-all duration-500  "></div>
+      <div className="absolute top-10 left-20 w-12 h-12 bg-primary border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] rotate-45 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-90 transition-all duration-500  "></div>
+      <div className="absolute bottom-20 right-20 w-16 h-16 bg-secondary border-1 border-foreground shadow-[8px_8px_0px_0px_#000000] -rotate-12 opacity-10 hover:opacity-40 hover:scale-125 hover:rotate-45 transition-all duration-500  "></div>
       
       {/* Sewing themed floating elements */}
       <Scissors className="absolute top-32 right-1/4 w-8 h-8 text-accent opacity-20 rotate-45 hover:opacity-60 hover:scale-150 hover:rotate-180 transition-all duration-700   animate-pulse" />
@@ -71,18 +71,18 @@ export function EtsyShop() {
       <Zap className="absolute top-1/2 right-10 w-4 h-4 text-accent opacity-15 hover:opacity-50 hover:scale-150 transition-all duration-300   animate-pulse" style={{ animationDelay: '1.5s' }} />
       
       {/* Embroidery hoop simulation */}
-      <div className="absolute top-20 right-10 w-20 h-20 border-4 border-muted-foreground rounded-full opacity-10 hover:opacity-30 hover:scale-125 hover:rotate-45 transition-all duration-500  ">
+      <div className="absolute top-20 right-10 w-20 h-20 border-1 border-muted-foreground rounded-full opacity-10 hover:opacity-30 hover:scale-125 hover:rotate-45 transition-all duration-500  ">
         <div className="w-full h-full border-2 border-accent rounded-full scale-75 opacity-50"></div>
       </div>
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="mb-6 text-5xl font-black uppercase tracking-tight">
-            <span className="bg-primary text-primary-foreground px-4 py-2 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
+            <span className="bg-primary text-primary-foreground px-4 py-2 border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block -rotate-1 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
               Наш магазин на
             </span>
             <br />
-            <span className="bg-secondary text-secondary-foreground px-4 py-2 border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block rotate-1 mt-4 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
+            <span className="bg-secondary text-secondary-foreground px-4 py-2 border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] inline-block rotate-1 mt-4 hover:rotate-0 hover:scale-110 hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] transition-all duration-300  ">
               ETSY!
             </span>
           </h2>
@@ -104,7 +104,7 @@ export function EtsyShop() {
             {products.map((product, index) => (
               <Card 
                 key={product.id}
-                className={`bg-card text-card-foreground border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] transition-all duration-300   hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] hover:scale-105 group ${
+                className={`bg-card text-card-foreground border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] transition-all duration-300   hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[6px] hover:-translate-y-[6px] hover:scale-105 group ${
                   index % 2 === 0 ? 'rotate-1 hover:rotate-0' : '-rotate-1 hover:rotate-0'
                 } ${hoveredProduct === product.id ? 'scale-110 shadow-[16px_16px_0px_0px_#000000] -translate-x-[10px] -translate-y-[10px]' : ''}`}
                 onMouseEnter={() => setHoveredProduct(product.id)}
@@ -159,7 +159,7 @@ export function EtsyShop() {
 
         {/* Call to Action */}
         <div className="text-center space-y-8">
-          <div className="bg-muted border-4 border-foreground p-8 shadow-[8px_8px_0px_0px_#000000] hover:shadow-[16px_16px_0px_0px_#000000] hover:-translate-x-[8px] hover:-translate-y-[8px] transition-all duration-300 rotate-1 hover:rotate-0">
+          <div className="bg-muted border-1 border-foreground p-8 shadow-[8px_8px_0px_0px_#000000] hover:shadow-[16px_16px_0px_0px_#000000] hover:-translate-x-[8px] hover:-translate-y-[8px] transition-all duration-300 rotate-1 hover:rotate-0">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="text-left">
                 <h3 className="text-2xl font-black uppercase tracking-tight mb-2 hover:text-primary transition-colors duration-300  ">
@@ -173,14 +173,14 @@ export function EtsyShop() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
                   size="lg" 
-                  className="px-8 py-4 bg-primary text-primary-foreground border-4 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 hover:scale-105 hover:bg-accent hover:text-accent-foreground group"
+                  className="px-8 py-4 bg-primary text-primary-foreground border-1 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 hover:scale-105 hover:bg-accent hover:text-accent-foreground group"
                 >
                   <ExternalLink className="w-5 h-5 mr-3 group-hover:rotate-12 transition-transform duration-300" />
                   Открыть магазин
                 </Button>
                 <Button 
                   size="lg" 
-                  className="px-8 py-4 bg-secondary text-secondary-foreground border-4 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 hover:scale-105 hover:bg-primary hover:text-primary-foreground group"
+                  className="px-8 py-4 bg-secondary text-secondary-foreground border-1 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 hover:scale-105 hover:bg-primary hover:text-primary-foreground group"
                 >
                   <Heart className="w-5 h-5 mr-3 group-hover:scale-125 transition-transform duration-300" />
                   В избранное

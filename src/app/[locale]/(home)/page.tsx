@@ -56,8 +56,6 @@ export default async function Page({
               <Skeleton className="h-12 w-[300px]" />
               <div className="space-y-6">
                 <Skeleton className="h-4 w-[90%]" />
-                <Skeleton className="h-4 w-[80%]" />
-                <Skeleton className="h-4 w-[85%]" />
               </div>
               <div className="space-y-4">
                 <Skeleton className="h-[200px] w-full" />

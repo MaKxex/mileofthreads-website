@@ -45,7 +45,7 @@ export default function NotFoundPage() {
 
           {/* Заголовок */}
           <div className={`mb-6 ${isAnimating ? 'animate-in slide-in-from-bottom-5 duration-700 delay-300' : 'opacity-0'}`}>
-            <h2 className="text-4xl md:text-6xl font-black mb-4 bg-card border-4 border-foreground px-6 py-3 inline-block shadow-[8px_8px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[4px] hover:-translate-y-[4px] transition-all duration-300 hover:scale-105">
+            <h2 className="text-4xl md:text-6xl font-black mb-4 bg-card border-1 border-foreground px-6 py-3 inline-block shadow-[8px_8px_0px_0px_#000000] hover:shadow-[12px_12px_0px_0px_#000000] hover:-translate-x-[4px] hover:-translate-y-[4px] transition-all duration-300 hover:scale-105">
               {t("title")}
             </h2>
           </div>
@@ -55,7 +55,7 @@ export default function NotFoundPage() {
             <Button
               onClick={handleGoHome}
               size="lg"
-              className="cursor-pointer bg-primary text-primary-foreground border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] hover:scale-110 transition-all duration-300 px-8 py-4 group"
+              className="cursor-pointer bg-primary text-primary-foreground border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] hover:scale-110 transition-all duration-300 px-8 py-4 group"
             >
               <Home className="w-6 h-6 mr-3 group-hover:rotate-12 transition-transform duration-300" />
               {t("toMainPage")}
@@ -65,7 +65,7 @@ export default function NotFoundPage() {
               onClick={handleGoBack}
               variant="outline"
               size="lg"
-              className="cursor-pointer bg-card text-card-foreground border-4 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] hover:scale-110 hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 px-8 py-4 group"
+              className="cursor-pointer bg-card text-card-foreground border-1 border-foreground shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] hover:scale-110 hover:bg-secondary hover:text-secondary-foreground transition-all duration-300 px-8 py-4 group"
             >
               <ArrowLeft className="w-6 h-6 mr-3 group-hover:-translate-x-2 transition-transform duration-300" />
               {t("goBack")}

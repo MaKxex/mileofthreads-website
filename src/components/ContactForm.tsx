@@ -35,9 +35,9 @@ export default function ContactForm() {
   }, [state]);
 
   return (
-    <Card className="h-fit border-4 border-foreground shadow-[8px_8px_0px_0px_#000000] bg-card rotate-1">
+    <Card className="h-fit border-1 border-foreground rotate-1">
       <CardHeader>
-        <CardTitle className="text-3xl font-black uppercase tracking-tight bg-primary text-primary-foreground px-4 py-2 border-2 border-foreground shadow-[4px_4px_0px_0px_#000000] inline-block -rotate-1">
+        <CardTitle className="text-3xl font-black uppercase tracking-tight text-primary py-2 inline-block">
           {t('Title')}
         </CardTitle>
       </CardHeader>
@@ -121,7 +121,7 @@ export default function ContactForm() {
             type="submit"
             disabled={pending || turnstileStatus !== 'success'}
             onClick={() => sendGTMEvent({event: 'contact_form_submitted', value: 1})}
-            className="w-full px-8 py-4 bg-primary text-primary-foreground border-4 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 cursor-pointer"
+            className="w-full px-8 py-4 bg-primary text-primary-foreground border-1 border-foreground font-black uppercase tracking-wide shadow-[6px_6px_0px_0px_#000000] hover:shadow-none hover:translate-x-[6px] hover:translate-y-[6px] transition-all duration-200 cursor-pointer"
           >
             {pending ? t('sending') : t('sendButton')}
             {!pending && <Send className="ml-3 w-5 h-5" />}
