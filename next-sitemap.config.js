@@ -43,7 +43,7 @@ module.exports = {
         result.push({
           loc: `${config.siteUrl}${homePath}`,
           changefreq: 'daily',
-          priority: 0.9,
+          priority: 1,
           lastmod: new Date().toISOString(),
           alternateRefs: locales.map(altLocale => ({
             href: `${config.siteUrl}/${altLocale}`,
